@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/spot/create', 'SpotController@add')->name('spot.create');
+Route::post('/spot/create', 'SpotController@create');
+Route::get('/spot/edit/{id}', 'SpotController@edit')->name('spot.edit');
+Route::post('/spot/edit/{id}', 'SpotController@update');
+Route::get('/spot/{id}', 'SpotController@show')->name('spot.show');
