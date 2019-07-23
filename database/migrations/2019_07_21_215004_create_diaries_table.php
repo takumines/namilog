@@ -15,13 +15,17 @@ class CreateDiariesTable extends Migration
     {
         Schema::create('diaries', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('spots_id');
+            $table->integer('spot_id')->unsigned();
             $table->string('title');
-            $table->integer('condition');
-            $table->integer('size');
+            $table->string('score');
+            $table->string('condition');
+            $table->string('size');
             $table->string('body');
             $table->string('image_path')->nullable();
             $table->timestamps();
+
+            // 外部キーを設定する
+            $table->foreign('spot_id')->references('id')->on('spots');
         });
     }
 

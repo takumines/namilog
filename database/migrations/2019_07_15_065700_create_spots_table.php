@@ -15,11 +15,14 @@ class CreateSpotsTable extends Migration
     {
         Schema::create('spots', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('users_id');
+            $table->integer('user_id');//->unsigned();
             $table->string('name');
             $table->string('place');
             $table->string('body');
             $table->timestamps();
+
+            // 外部キーを設定する
+            //$table->foreign('user_id')->references('id')->on('users');
         });
     }
 
