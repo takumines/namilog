@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSpotsTable extends Migration
+class CreateDiariesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateSpotsTable extends Migration
      */
     public function up()
     {
-        Schema::create('spots', function (Blueprint $table) {
+        Schema::create('diaries', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('users_id');
-            $table->string('name');
-            $table->string('place');
+            $table->integer('spots_id');
+            $table->string('title');
+            $table->integer('condition');
+            $table->integer('size');
             $table->string('body');
+            $table->string('image_path')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ class CreateSpotsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('spots');
+        Schema::dropIfExists('diaries');
     }
 }
