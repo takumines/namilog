@@ -11,11 +11,18 @@
           <div>
             <th>
               <td>{{ $diary->title }}</td>
-              <td>{{ $diary->score }}</td>
-              <td>{{ $diary->condition }}</td>
-              <td>{{ $diary->size }}</td>
+              <td>{{ $diary->score_label }}</td>
+              <td>{{ $diary->condition_label }}</td>
+              <td>{{ $diary->size_label }}</td>
               <td>{{ $diary->body }}</td>
               <td>{{ $diary->getSpotName() }}</td>
+              <div class="image col-md-8 mx-auto">
+                @if ($diary->image_path != null)
+                  <img src="{{ $diary->image_path }}" alt="" class="image-diary mx-auto">
+                @else
+                  <img src="{{ asset('images/nodiaryimage.jpg') }}" alt="" class="mx-auto">
+                @endif
+              </div>
             </th>
           </div>
         @endforeach
