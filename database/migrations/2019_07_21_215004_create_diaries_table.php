@@ -17,15 +17,15 @@ class CreateDiariesTable extends Migration
             $table->increments('id');
             $table->integer('spot_id')->unsigned();
             $table->string('title');
-            $table->string('score');
-            $table->string('condition');
-            $table->string('size');
+            $table->integer('score');
+            $table->integer('condition');
+            $table->integer('size');
             $table->string('body');
             $table->string('image_path')->nullable();
             $table->timestamps();
 
             // 外部キーを設定する
-            $table->foreign('spot_id')->references('id')->on('spots');
+            //$table->foreign('spot_id')->references('id')->on('spots');
         });
     }
 

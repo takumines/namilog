@@ -4,9 +4,7 @@
     <div class="container ">
       <div class="row">
         <div class="col col-md-8 mx-auto ">
-          <div class="col-md-5 mx-auto">
-            <h2 class="text-center border-bottom mb-5">スポット詳細</h2>
-          </div>
+            <h2 class="text-center mb-5">スポット詳細</h2>
           <div class="row box p-3 mb-5 ">
             <table class="table table-striped">
               <tbody class="text-center">
@@ -31,8 +29,8 @@
               </tbody>
             </table>
           </div>
-          <div class="col-2 mx-auto">
-                <a class="btn btn-block btn-lg btn-primary"  href="{{ route('spot.edit', [ 'id' => $spot->id ]) }}" >編集</a>
+          <div class="text-center">
+                <a class="btn btn-lg btn-primary"  href="{{ route('spot.edit', [ 'id' => $spot->id ]) }}" >編集</a>
           </div>
         </div>
       </div>
