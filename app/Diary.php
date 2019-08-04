@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Diary extends Model
 {
-    protected $fillable = ['title', 'condition', 'size', 'score', 'body', 'image_path'];
+    protected $fillable = ['title', 'spot_id', 'condition', 'size', 'score', 'body', 'image_path'];
 
     /**
      * config/condition.phpの数値を文字に変換
