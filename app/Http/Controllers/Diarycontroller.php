@@ -32,14 +32,19 @@ class Diarycontroller extends Controller
 
     public function add()
     {
-        return view('diary.create');
+        $spots = Spot::all();
+
+
+        return view('diary.create', [
+            'spots' => $spots,
+        ]);
     }
 
     public function create(CreateDiary $request)
     {
         $diary = new Diary();
         $form = $request->all();
-        // formから送信されたimgファイルを読み込む
+        
         if(isset($form['image'])){
             // 画像の拡張子を取得 
             $extension = $form['image']->getClientOriginalExtension(); 
@@ -79,23 +84,27 @@ class Diarycontroller extends Controller
     {
         $diary = Diary::find($request->id);
         $form = $request->all();
-        $file = $form['image'];
-        // formから送信されたimgファイルを読み込む
-        $file = $form['image'];
-        // 画像の拡張子を取得 
-        $extension = $file->getClientOriginalExtension(); 
-        // 画像の名前を取得 
-        $filename = $file->getClientOriginalName(); 
-        // 画像をリサイズ 
-        $resize_img = Image::make($file)->resize(400, 300)->encode($extension); 
-        // s3のuploadsファイルに追加 
-        $path = Storage::disk('s3')->put('/diary/'.$filename,(string)$resize_img, 'public'); 
-        // 画像のURLを参照 
-        $url = Storage::disk('s3')->url('diary/'.$filename); 
+        
+        if(isset($form['image'])){
+            // 画像の拡張子を取得 
+            $extension = $form['image']->getClientOriginalExtension(); 
+            // 画像の名前を取得 
+            $filename = $form['image']->getClientOriginalName(); 
+            // 画像をリサイズ 
+            $resize_img = Image::make($form['image'])->resize(400, 300)->encode($extension); 
+            // s3のuploadsファイルに追加 
+            $path = Storage::disk('s3')->put('/diary/'.$filename,(string)$resize_img, 'public'); 
+            // 画像のURLを参照 
+            $url = Storage::disk('s3')->url('diary/'.$filename); 
         
         $diary->image_path = $url;
+        } else {
+            $diary->image_path = null;
+        }
 
         unset($form['_token'],$form['image']);
+
+        $diary->fill($form)->save();
 
         return redirect()->route('diary.show', [
             'id' => $diary->id,
