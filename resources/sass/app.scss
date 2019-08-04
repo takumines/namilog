@@ -7,36 +7,5 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-h2 {
-  position: relative;
-  padding-left: 25px;
-}
 
-h2:before {
-  position: absolute;
-  content: '';
-  bottom: -3px;
-  left: 0;
-  width: 0;
-  height: 0;
-  border: none;
-  border-left: solid 15px transparent;
-  border-bottom: solid 15px #0099CC;
-}
-h2:after {
-  position: absolute;
-  content: '';
-  bottom: -3px;
-  left: 15px;
-  width: 100%;
-  border-bottom: solid 3px #0099CC;
-}
 
-.image-diary {
-  object-fit: cover;
-  border-radius: 10%;
-  height: auto;
-  max-width: 100%;
-  display: block;
-  text-align:center;
-}

@@ -12,17 +12,17 @@
           <!-- スポット名フォーム -->
           <div class="form-group">
             <label class="col-md-3 mx-auto" for="name"><span class="badge badge-danger">必須</span>スポット名</label>
-            <input class="form-control" type="text" name="name" value="{{ old('name') ?? $spot->name }}">
+            <input class="form-control" type="text" name="name" value="{{ old('name', $spot->name) }}">
           </div>
           <!-- 都道府県入力フォーム -->
           <div class="form-group">
             <label class="col-md-3 mx-auto" for="place"><span class="badge badge-danger">必須</span>都道府県</label>
-            <input class="form-control" type="text" name="place" value="{{ old('place') ?? $spot->place }}">
+            <input class="form-control" type="text" name="place" value="{{ old('place', $spot->place) }}">
           </div>
           <!-- メモ入力エリア -->
           <div class="form-group">
             <label class="col-md-2 mx-auto" for="body">特長メモ</label>
-            <textarea class="form-control" name="body" id="body" cols="30" rows="10">{{ old('body') ?? $spot->body }}</textarea>
+            <textarea class="form-control" name="body" id="body" cols="30" rows="10">{{ old('body', $spot->body) }}</textarea>
           </div>
           <!-- 送信ボタン -->
           <div class="form-group">
