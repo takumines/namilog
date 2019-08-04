@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Diary extends Model
 {
+    protected $fillable = ['title', 'condition', 'size', 'score', 'body', 'image_path'];
 
     /**
      * config/condition.phpの数値を文字に変換
@@ -50,5 +51,9 @@ class Diary extends Model
         return $this->spot->name;
     }
 
-    protected $fillable = ['title', 'condition', 'size', 'score', 'body', 'image_path'];
+    public function getSpotId()
+    {
+        return $this->spot->id;
+    }
+
 }

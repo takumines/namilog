@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col col-md-8 mx-auto ">
             <h2 class="text-center mb-5">スポット詳細</h2>
-          <div class="row box p-3 mb-5 ">
+            <div class="row box p-3 mb-5 ">
             <table class="table table-striped">
               <tbody class="text-center">
                 <tr>
@@ -28,7 +28,7 @@
                 </tr>
               </tbody>
             </table>
-          </div>
+            </div>
           <div class="text-center">
                 <a class="btn btn-lg btn-primary"  href="{{ route('spot.edit', [ 'id' => $spot->id ]) }}" >編集</a>
           </div>

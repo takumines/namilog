@@ -22,4 +22,6 @@ Route::get('/spot/{id}', 'SpotController@show')->name('spot.show');
 Route::get('/diary/index', 'DiaryController@index');
 Route::get('/diary/create', 'DiaryController@add')->name('diary.create');
 Route::post('/diary/create', 'DiaryController@create');
+Route::get('/diary/edit/{id}', 'DiaryController@edit')->name('diary.edit');
+Route::post('/diary/edit/{id}', 'DiaryController@update');
 Route::get('diary/{id}', 'Diarycontroller@show')->name('diary.show');
