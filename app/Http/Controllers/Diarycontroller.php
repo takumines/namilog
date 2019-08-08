@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Diary;
 use App\Spot;
 use Illuminate\Http\Request;
-use App\Http\Requests\CreateDiary;
+use App\Http\Requests\DiaryRequest;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
@@ -40,7 +40,7 @@ class Diarycontroller extends Controller
         ]);
     }
 
-    public function create(CreateDiary $request)
+    public function create(DiaryRequest $request)
     {
         $diary = new Diary();
         $form = $request->all();
@@ -81,7 +81,7 @@ class Diarycontroller extends Controller
         ]);
     }
 
-    public function update(Request $request) 
+    public function update(DiaryRequest $request) 
     {
         $diary = Diary::find($request->id);
         $form = $request->all();

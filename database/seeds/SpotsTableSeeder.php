@@ -15,8 +15,8 @@ class SpotsTableSeeder extends Seeder
     {
         $spots = [
             ['id' => 1, 'user_id' => 1, 'name' => 'けなし', 'place' => '宮崎', 'body' => 'texttexttexttexttexttexttexttexttexttexttexttexttext'],
-            ['id' => 2, 'user_id' => 1, 'name' => 'ハウス', 'place' => '宮崎', 'body' => 'texttexttexttexttexttexttexttexttexttexttexttexttext'],
-            ['id' => 3, 'user_id' => 1, 'name' => '汐汲み場', 'place' => '宮崎', 'body' => 'texttexttexttexttexttexttexttexttexttexttexttexttext'],
+            ['id' => 2, 'user_id' => 2, 'name' => 'ハウス', 'place' => '宮崎', 'body' => 'texttexttexttexttexttexttexttexttexttexttexttexttext'],
+            ['id' => 3, 'user_id' => 3, 'name' => '汐汲み場', 'place' => '宮崎', 'body' => 'texttexttexttexttexttexttexttexttexttexttexttexttext'],
         ];
         
         foreach ($spots as $spot) {
