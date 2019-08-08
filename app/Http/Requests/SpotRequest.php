@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests;
 
+
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateDiary extends FormRequest
+class SpotRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,16 +25,16 @@ class CreateDiary extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
-            'body'  => 'required',  
+            'name' => 'required|unique:spots,name',
+            'place' => 'required',
         ];
     }
 
     public function attributes()
     {
         return [
-            'title' => 'タイトル',
-            'body'  => 'メモ',
+            'name' => 'スポット名',
+            'place' => '都道府県',
         ];
     }
 }

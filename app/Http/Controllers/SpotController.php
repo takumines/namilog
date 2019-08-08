@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Spot;
 use App\Diary;
 use Illuminate\Http\Request;
-use App\Http\Requests\CreateSpot;
+use App\Http\Requests\SpotRequest;
 use App\Http\Requests\EditSpot;
 
 class SpotController extends Controller
@@ -24,7 +24,7 @@ class SpotController extends Controller
         return view('spot/create');
     }
 
-    public function create(CreateSpot $request)
+    public function create(SpotRequest $request)
     {
         $spot = new Spot();
         $form = $request->all();
@@ -45,7 +45,7 @@ class SpotController extends Controller
         ]);
     }
 
-    public function update(EditSpot $request)
+    public function update(SpotRequest $request)
     {
         $spot = Spot::find($request->id);
         $form = $request->all();
