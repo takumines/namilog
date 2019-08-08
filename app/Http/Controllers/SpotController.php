@@ -6,7 +6,7 @@ use App\Spot;
 use App\Diary;
 use Illuminate\Http\Request;
 use App\Http\Requests\SpotRequest;
-use App\Http\Requests\EditSpot;
+
 
 class SpotController extends Controller
 {
@@ -28,7 +28,7 @@ class SpotController extends Controller
     {
         $spot = new Spot();
         $form = $request->all();
-        /* user_id実装 */
+        
         $spot->fill($form)->save();
 
         return redirect()->route('spot.show', [

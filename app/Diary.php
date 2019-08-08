@@ -7,7 +7,23 @@ use Illuminate\Database\Eloquent\Model;
 class Diary extends Model
 {
     protected $fillable = ['title', 'spot_id', 'condition', 'size', 'score', 'body', 'image_path'];
+    /**
+         * このdiaryを保有するspotを取得
+         */
+        public function spot()
+        {
+            return $this->belongsTo('App\Spot');
+        }
 
+        public function getSpotName()
+        {
+            return $this->spot->name;
+        }
+
+        public function getSpotId()
+        {
+            return $this->spot->id;
+        }
     /**
      * config/condition.phpの数値を文字に変換
      */
@@ -38,22 +54,6 @@ class Diary extends Model
         return config('score')[$score_name]['label'];
     }
 
-    /**
-     * このdiaryを保有するspotを取得
-     */
-    public function spot()
-    {
-        return $this->belongsTo('App\Spot');
-    }
-
-    public function getSpotName()
-    {
-        return $this->spot->name;
-    }
-
-    public function getSpotId()
-    {
-        return $this->spot->id;
-    }
+    
 
 }
