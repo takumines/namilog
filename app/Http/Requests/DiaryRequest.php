@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EditSpot extends FormRequest
+class DiaryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,16 +24,16 @@ class EditSpot extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'place' => 'required',
+            'title' => 'required',
+            'body'  => 'required',  
         ];
     }
 
     public function attributes()
     {
         return [
-            'name' => 'スポット名',
-            'place' => '都道府県',
+            'title' => 'タイトル',
+            'body'  => 'メモ',
         ];
     }
 }

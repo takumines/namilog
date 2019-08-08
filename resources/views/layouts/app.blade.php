@@ -35,11 +35,11 @@
     -->
 
     <div class="navbar-nav ">
+      <a class="nav-item nav-link" href="#">About</a>
       <a class="nav-item nav-link" href="{{ route('diary.index') }}">タイムライン</a>
       <a class="nav-item nav-link" href="{{ route('diary.create') }}">日記投稿</a>
       <a class="nav-item nav-link" href="#">ユーザー一覧</a>
       <a class="nav-item nav-link" href="#">プロフィール</a>
-      <a class="nav-item nav-link" href="#">About</a>
       <!-- <a class="nav-item nav-link" href="#">ログアウト</a> -->
     </div>
   </div>
