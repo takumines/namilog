@@ -71,12 +71,13 @@ class Diarycontroller extends Controller
         ]);
     }
 
-    public function edit(int $id, Diary $diary)
+    public function edit(int $id, Diary $diary, Spot $spots)
     {
         $diary = Diary::find($id);
-
+        $spots = Spot::all();
         return view('diary/edit', [
             'diary' => $diary,
+            'spots'  => $spots,
         ]);
     }
 

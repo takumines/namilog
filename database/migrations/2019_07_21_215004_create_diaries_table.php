@@ -24,8 +24,8 @@ class CreateDiariesTable extends Migration
             $table->string('image_path')->nullable();
             $table->timestamps();
 
-            // 外部キーを設定する
-            //$table->foreign('spot_id')->references('id')->on('spots');
+            // 外部キー設定
+            $table->foreign('spot_id')->references('id')->on('spots');
         });
     }
 

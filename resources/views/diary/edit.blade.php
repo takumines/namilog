@@ -14,6 +14,15 @@
             <label class="col col-md-3" for="title">タイトル</label>
             <input class="form-control" type="text" name="title" value="{{ old('title', $diary->title)}}">
           </div>
+          <!-- スポット選択フォーム -->
+          <div class="form-group">
+            <label class="col col-md-3" for="spot_id">スポット</label>
+            <select class="form-control" name="spot_id" id="spot_id">
+              @foreach($spots as $spot)
+                <option value="{{ $spot->id }}"{{ $spot->id == old('spot_id', $diary->spot_id) ? 'selected' : '' }}>{{ $spot->name }}</option>
+              @endforeach
+            </select>
+          </div>
           <!-- コンディション入力フォーム -->
           <div class="form-group">
             <label  class="col col-md-3" for="condition">コンディション</label>
