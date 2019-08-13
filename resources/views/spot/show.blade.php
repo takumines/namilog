@@ -4,7 +4,7 @@
     <div class="container ">
       <div class="row">
         <div class="col col-md-8 mx-auto ">
-            <h2 class="text-center mb-5">スポット詳細</h2>
+            <h1 class="text-center mb-5">スポット詳細</h1>
             <div class="row box p-3 mb-5 ">
             <table class="table table-striped">
               <tbody class="text-center">

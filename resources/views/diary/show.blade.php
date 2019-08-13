@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row ">
       <div class="col col-md-10 mx-auto bg-primary">
-        <h2 class="text-center mb-5">{{ $diary->title }}</h2>
+        <h1 class="text-center mb-5">{{ $diary->title }}</h1>
       </div>
       <div class="col-lg-6  text-center bg-secondary">
         @if ($diary->image_path != null)
