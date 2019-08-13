@@ -18,7 +18,8 @@ Route::get('/', function() {
 Route::get('/start', 'StartController@index')->name('start');
 Route::get('/start/create', 'StartController@add')->name('start.create');
 Route::post('/start/create', 'StartController@create');
-// Route::
+/* Auth */
+Auth::routes();
 /* spot */
 Route::get('/spot/create', 'SpotController@add')->name('spot.create');
 Route::post('/spot/create', 'SpotController@create');

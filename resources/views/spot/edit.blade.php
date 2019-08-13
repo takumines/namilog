@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col col-md-8 mx-auto">
-          <h2 class="text-center mb-5">スポット編集</h2>
+          <h1 class="text-center mb-5">スポット編集</h1>
         <!-- エラー処理 -->
         @include('partials.errors.form_errors')
         <form action="{{ route('spot.edit', [ 'id' => $spot->id ]) }}" method="post">
