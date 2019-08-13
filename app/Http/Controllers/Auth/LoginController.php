@@ -36,4 +36,12 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    protected function validator(array $data)
+    {
+        return Validator::make($data,[
+            'email' => 'メールアドレス',
+            'password' => 'パスワード',
+        ]);
+    }
 }
