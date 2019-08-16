@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Diary;
 use App\Spot;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\DiaryRequest;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
@@ -43,6 +44,8 @@ class Diarycontroller extends Controller
     public function create(DiaryRequest $request)
     {
         $diary = new Diary();
+        $user = Auth::user();
+        $diary->user_id = $user->id;
         $form = $request->all();
         
         if(isset($form['image'])){

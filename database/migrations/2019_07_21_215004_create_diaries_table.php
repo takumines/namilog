@@ -16,6 +16,7 @@ class CreateDiariesTable extends Migration
         Schema::create('diaries', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('spot_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->string('title');
             $table->integer('score');
             $table->integer('condition');
@@ -26,6 +27,7 @@ class CreateDiariesTable extends Migration
 
             // 外部キー設定
             $table->foreign('spot_id')->references('id')->on('spots');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

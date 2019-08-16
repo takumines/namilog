@@ -15,8 +15,11 @@
 </head>
 <body>
 <header>
-<nav class="navbar navbar-dark navbar-expand-md bg-dark ">
-  <a href="{{ route('diary.index') }}" class="navbar-brand">Nami Log</a>
+<nav class="navbar navbar-dark navbar-expand-md bg-info ">
+<a href="{{ route('diary.index') }}" class="navbar-brand">Nami Log</a>
+@if(Auth::check())
+  <div class="nav-item">ようこそ、{{ Auth::user()->name }}さん</div>
+@endif
   <button class="navbar-toggler" type="button"
       data-toggle="collapse"
       data-target="#navmenu"
@@ -26,22 +29,26 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse justify-content-end" id="navmenu">
-
-    <!-- ログインしてない
-      <div class="navbar-nav>
-        <a class="nav-item nav-link" href="#">ログイン</a>
+  @if(Auth::guest())
+    
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="{{ route('login') }}">ログイン</a>
         <a class="nav-item nav-link" href="#">新規登録</a>
       </div>
-    -->
-
+  @else
     <div class="navbar-nav ">
       <a class="nav-item nav-link" href="#">About</a>
       <a class="nav-item nav-link" href="{{ route('diary.index') }}">タイムライン</a>
       <a class="nav-item nav-link" href="{{ route('diary.create') }}">日記投稿</a>
       <a class="nav-item nav-link" href="#">ユーザー一覧</a>
       <a class="nav-item nav-link" href="#">プロフィール</a>
-      <!-- <a class="nav-item nav-link" href="#">ログアウト</a> -->
+      <a class="nav-item nav-link" href="{{ route('logout') }}" id="logout" 
+        onclick="event.preventDefault();document.getElementById('logout-form').submit();">ログアウト</a>
+      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+      </form>
     </div>
+  @endif
   </div>
 </nav>
 
