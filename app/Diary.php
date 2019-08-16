@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Diary extends Model
 {
-    protected $fillable = ['title', 'spot_id', 'condition', 'size', 'score', 'body', 'image_path'];
+    protected $fillable = ['title', 'user_id', 'spot_id', 'condition', 'size', 'score', 'body', 'image_path'];
     /**
          * このdiaryを保有するspotを取得
          */
