@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Spot;
 use App\Diary;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\SpotRequest;
 
