@@ -22,6 +22,8 @@ class StartController extends Controller
     public function create(SpotRequest $request)
     {
         $spot = new Spot();
+        $user = Auth::user();
+        $spot->user_id = $user->id;
         $form = $request->all();
         
         $spot->fill($form)->save();

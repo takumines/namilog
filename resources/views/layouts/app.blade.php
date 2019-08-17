@@ -33,7 +33,7 @@
     
       <div class="navbar-nav">
         <a class="nav-item nav-link" href="{{ route('login') }}">ログイン</a>
-        <a class="nav-item nav-link" href="#">新規登録</a>
+        <a class="nav-item nav-link" href="{{ route('register') }}">新規登録</a>
       </div>
   @else
     <div class="navbar-nav ">

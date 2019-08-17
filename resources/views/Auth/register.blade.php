@@ -25,7 +25,7 @@
               </div>
               <div class="form-group row">
                 <label for="password-confirm" class="col-md-6">パスワード（確認）</label>
-                <input type="password" class="form-control" id="password-confirm" name="password-confirm">
+                <input type="password" class="form-control" id="password-confirm" name="password_confirmation">
               </div>
               <div class="form-group">
                 <div class="text-center">
