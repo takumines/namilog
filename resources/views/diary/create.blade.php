@@ -16,7 +16,7 @@
           </div>
           <!-- スポット選択フォーム -->
           <div class="form-group">
-            <label class="col col-md-3" for="spot_id">スポット</label>
+            <label class="col col-md-6" for="spot_id">スポット(<a href="{{ route('spot.create') }}">スポット追加</a>)</label>
             <select class="form-control" name="spot_id" id="spot_id">
               @foreach($spots as $spot)
                 <option value="{{ $spot->id }}">{{ $spot->name }}</option>
