@@ -10,13 +10,13 @@ use App\Http\Requests\DiaryRequest;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
-class Diarycontroller extends Controller
+class DiaryController extends Controller
 {
-    public function index()
+    public function list()
     {
         $diaries = Diary::all();
         
-        return view('diary/index', [
+        return view('diary/list', [
             'diaries' => $diaries,
             ]);
     }
