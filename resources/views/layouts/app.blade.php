@@ -16,7 +16,7 @@
 <body>
 <header>
 <nav class="navbar navbar-dark navbar-expand-md bg-info ">
-<a href="{{ route('diary.index') }}" class="navbar-brand">Nami Log</a>
+<a href="{{ route('diary.list') }}" class="navbar-brand">Nami Log</a>
 @if(Auth::check())
   <div class="nav-item">ようこそ、{{ Auth::user()->name }}さん</div>
 @endif
@@ -38,9 +38,9 @@
   @else
     <div class="navbar-nav ">
       <a class="nav-item nav-link" href="#">About</a>
-      <a class="nav-item nav-link" href="{{ route('diary.index') }}">タイムライン</a>
+      <a class="nav-item nav-link" href="{{ route('diary.list') }}">タイムライン</a>
       <a class="nav-item nav-link" href="{{ route('diary.create') }}">日記投稿</a>
-      <a class="nav-item nav-link" href="#">ユーザー一覧</a>
+      <a class="nav-item nav-link" href="{{ route('user.list') }}">ユーザー一覧</a>
       <a class="nav-item nav-link" href="#">プロフィール</a>
       <a class="nav-item nav-link" href="{{ route('logout') }}" id="logout" 
         onclick="event.preventDefault();document.getElementById('logout-form').submit();">ログアウト</a>
@@ -53,7 +53,7 @@
 </nav>
 
   <!--<nav class="navbar navbar-expand-md navbar-dark navbar-laravel">
-    <a class="my-navbar-brand" href="{{ route('diary.index') }}">Nami Log</a>
+    <a class="my-navbar-brand" href="{{ route('diary.list') }}">Nami Log</a>
     
   </nav> -->
 </header>
