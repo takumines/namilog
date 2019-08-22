@@ -51,4 +51,26 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\User');
     }
+
+    /**
+     * config/stance.phpの数字を文字に変換
+     */
+
+     public function getStanceLabelAttribute()
+     {
+         $stance_name = $this->attributes['stance'];
+
+         return config('stance')[$stance_name]['label'];
+     }
+
+     /**
+      * config/board.phpの数字を文字に変換
+      */
+
+      public function getBoardLabelAttribute()
+      {
+          $board_name = $this->attributes['board'];
+
+          return config('board')[$board_name]['label'];
+      }
 }

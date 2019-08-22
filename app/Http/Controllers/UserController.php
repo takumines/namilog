@@ -6,13 +6,13 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class Usercontroller extends Controller
+class UserController extends Controller
 {
     public function list()
     {
         $users = User::all();
 
-        view('user/list', [
+        return view('user/list', [
             'users' => $users,
         ]);
     }
@@ -27,9 +27,14 @@ class Usercontroller extends Controller
 
     }
 
-    public function show()
+    public function show(int $id)
     {
+        $user = User::find($id);
 
+        return view('user/show', [
+            'user' => $user,
+            'id' => $user->id,
+        ]);
     }
 
 }
