@@ -41,7 +41,7 @@
       <a class="nav-item nav-link" href="{{ route('diary.list') }}">タイムライン</a>
       <a class="nav-item nav-link" href="{{ route('diary.create') }}">日記投稿</a>
       <a class="nav-item nav-link" href="{{ route('user.list') }}">ユーザー一覧</a>
-      <a class="nav-item nav-link" href="#">プロフィール</a>
+      <a class="nav-item nav-link" href="{{ route('user.show', ['id' => $user->id]) }}">プロフィール</a>
       <a class="nav-item nav-link" href="{{ route('logout') }}" id="logout" 
         onclick="event.preventDefault();document.getElementById('logout-form').submit();">ログアウト</a>
       <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -51,11 +51,6 @@
   @endif
   </div>
 </nav>
-
-  <!--<nav class="navbar navbar-expand-md navbar-dark navbar-laravel">
-    <a class="my-navbar-brand" href="{{ route('diary.list') }}">Nami Log</a>
-    
-  </nav> -->
 </header>
   
   <main class="py-4 pt-5">
