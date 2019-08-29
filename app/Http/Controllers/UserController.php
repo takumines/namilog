@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Spot;
 use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class UserController extends Controller
 {
@@ -27,7 +31,7 @@ class UserController extends Controller
         ]);
     }
 
-    public function update(Request $request)
+    public function update(UserRequest $request)
     {
         $user = User::find($request->id);
         $form = $request->all();
@@ -61,10 +65,14 @@ class UserController extends Controller
     public function show(int $id)
     {
         $user = User::find($id);
+        $current_user = Auth::user();
+        $spots = Auth::user()->spots()->get();
 
         return view('user/show', [
             'user' => $user,
             'id' => $user->id,
+            'current_user' => $current_user,
+            'spots' => $spots,
         ]);
     }
 

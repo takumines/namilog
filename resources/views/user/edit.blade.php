@@ -50,9 +50,13 @@
             <label class="col col-md-3" for="introduction">自己紹介</label>
             <textarea class="form-control" name="introduction" cols="30" rows="10">{{ old('introduction', $user->introduction) }}</textarea>
           </div>
+          <!-- 送信ボタン -->
+          <div class="form-group">
+            <div class="text-center">
+              <button class="btn btn-lg  btn-primary" type="submit">完了</button>
+            </div>
+          </div>
         </form>
-        <div class="form-group">
-        </div>
       </div>
     </div>
   </div>

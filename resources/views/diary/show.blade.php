@@ -25,8 +25,10 @@
           <p>{{ $diary->body }}</p>
       </div>
     </div>
-    <div class="text-center">
-      <a class="btn btn-lg btn-primary"  href="{{ route('diary.edit', [ 'id' => $diary->id ]) }}" >編集</a>
-    </div>
+    @if($diary->user_id == $current_user->id)
+      <div class="text-center">
+        <a class="btn btn-lg btn-primary"  href="{{ route('diary.edit', [ 'id' => $diary->id ]) }}" >編集</a>
+      </div>
+    @endif
   </div>
 @endsection
