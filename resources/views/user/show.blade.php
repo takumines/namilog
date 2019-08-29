@@ -8,7 +8,7 @@
             @if( $user->image_path != null )
               <img src="{{ $user->image_path }}" alt="" class="image-diary">
             @else
-              <img src="{{ asset('images/nodiaryimage.jpg') }}" alt="" class="mx-auto">
+              <img src="{{ asset('images/noprofileimage.jpg') }}" alt="" class="mx-auto">
             @endif
           </div>
           <h3 class="text-center">{{ $user->name }}</h3>
@@ -17,9 +17,12 @@
             <tr>{{ $user->board_label }}</tr>
             <tr>{{ $user->introduction }}</tr>
           </td>
-          <div class="text-center">
-            <a class="btn btn-lg btn-primary" href="{{ route('user.edit', ['id' => $user->id]) }}">編集</a>
-          </div>
+
+          @if($user->id == $current_user->id)
+            <div class="text-center">
+              <a class="btn btn-lg btn-primary" href="{{ route('user.edit', ['id' => $user->id]) }}">編集</a>
+            </div>
+          @endif
         </th>
       </div>
     </div>

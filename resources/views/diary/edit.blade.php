@@ -54,7 +54,7 @@
           <div class="form-group">
             <label class="col col-md-3" for="image">画像</label>
             <div class="col-md-10">
-              <input type="file" class="form-control-file" name="image">
+              <input type="file" class="form-control-file" name="image" value="{{ old('image_path', $diary->image_path)}}">
               <div class="form-text form-info">
                 @if($diary->image_path != null)
                   設定中: {{ $diary->image_path }}

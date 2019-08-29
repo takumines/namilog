@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Diary;
 use App\Spot;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\DiaryRequest;
@@ -24,10 +25,12 @@ class DiaryController extends Controller
     public function show(int $id)
     {
         $diary = Diary::find($id);
+        $current_user = Auth::user();
 
         return view('diary/show', [
             'id' => $diary->id,
             'diary' => $diary,
+            'current_user' => $current_user,
         ]);
     }
 
@@ -102,8 +105,6 @@ class DiaryController extends Controller
             $url = Storage::disk('s3')->url('diary/'.$filename); 
         
         $diary->image_path = $url;
-        } else {
-            $diary->image_path = null;
         }
 
         unset($form['_token'],$form['image']);

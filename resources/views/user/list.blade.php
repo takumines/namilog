@@ -14,7 +14,7 @@
                 @if ($user->image_path != null)
                   <img src="{{ $user->image_path }}" alt="" class="image-diary mx-auto">
                 @else
-                  <img src="{{ asset('images/nodiaryimage.jpg') }}" alt="" class="mx-auto">
+                  <img src="{{ asset('images/noprofileimage.jpg') }}" alt="" class="mx-auto">
                 @endif
               </div>
               <td><a href="{{ route('user.show', ['id' => $user->id]) }}">{{ $user->name }}</a></td>
