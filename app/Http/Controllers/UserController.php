@@ -35,25 +35,27 @@ class UserController extends Controller
     {
         $user = User::find($request->id);
         $form = $request->all();
-
-        if(isset($form['image'])){
+        if (isset($form['image'])) {
             // 画像の拡張子を取得 
             $extension = $form['image']->getClientOriginalExtension(); 
             // 画像の名前を取得 
             $filename = $form['image']->getClientOriginalName(); 
             // 画像をリサイズ 
-            $resize_img = Image::make($form['image'])->resize(400, 300)->encode($extension); 
+            $resize_img = Image::make($form['image'])->resize(300, 300)->encode($extension); 
             // s3のuploadsファイルに追加 
             $path = Storage::disk('s3')->put('/user/'.$filename,(string)$resize_img, 'public'); 
             // 画像のURLを参照 
-            $url = Storage::disk('s3')->url('diary/'.$filename); 
-        
+            $url = Storage::disk('s3')->url('user/'.$filename); 
             $user->image_path = $url;
-        } else {
-            $user->image_path = null;
+            unset($form['image']);
         }
 
-        unset($form['_token'],$form['image']);
+        if(isset($form['remove'])){
+            $user->image_path = null;
+            unset($form['remove']);
+        }
+
+        unset($form['_token']);
 
         $user->fill($form)->save();
 
@@ -62,16 +64,17 @@ class UserController extends Controller
         ]);
     }
 
-    public function show(int $id)
+    public function show(int $id, Spot $spots, User $user)
     {
         $user = User::find($id);
         $current_user = Auth::user();
-        $spots = Auth::user()->spots()->get();
+        $spots = Spot::all();
+
 
         return view('user/show', [
             'user' => $user,
-            'id' => $user->id,
             'current_user' => $current_user,
+            'id' => $user->id,
             'spots' => $spots,
         ]);
     }

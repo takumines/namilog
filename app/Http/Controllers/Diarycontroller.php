@@ -104,10 +104,17 @@ class DiaryController extends Controller
             // 画像のURLを参照 
             $url = Storage::disk('s3')->url('diary/'.$filename); 
         
-        $diary->image_path = $url;
+            $diary->image_path = $url;
+            unset($form['image']);
+
         }
 
-        unset($form['_token'],$form['image']);
+        if(isset($form['remove'])){
+            $diary->image_path = null;
+            unset($form['remove']);
+        }
+
+        unset($form['_token']);
 
         $diary->fill($form)->save();
 

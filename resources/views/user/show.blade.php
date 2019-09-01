@@ -6,7 +6,7 @@
       <div class="col col-md-8 mx-auto">
           <div class="text-center">
             @if( $user->image_path != null )
-              <img src="{{ $user->image_path }}" alt="" class="image-diary">
+              <img src="{{ $user->image_path }}" alt="" class="image-user">
             @else
               <img src="{{ asset('images/noprofileimage.jpg') }}" alt="" class="mx-auto">
             @endif
@@ -17,6 +17,13 @@
             <tr>{{ $user->board_label }}</tr>
             <tr>{{ $user->introduction }}</tr>
           </td>
+          
+            @foreach($spots as $spot)
+              @if($spot->user_id == $user->id)
+                <h3>{{ $spot->name }}</h3>
+              @endif
+            @endforeach
+          
 
           @if($user->id == $current_user->id)
             <div class="text-center">
