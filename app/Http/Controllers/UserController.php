@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Spot;
+use App\Diary;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Auth;
@@ -64,11 +65,12 @@ class UserController extends Controller
         ]);
     }
 
-    public function show(int $id, Spot $spots, User $user)
+    public function show(int $id, Spot $spots, User $user, Diary $diaries)
     {
         $user = User::find($id);
         $current_user = Auth::user();
         $spots = Spot::all();
+        $diaries = Diary::all();
 
 
         return view('user/show', [
@@ -76,6 +78,7 @@ class UserController extends Controller
             'current_user' => $current_user,
             'id' => $user->id,
             'spots' => $spots,
+            'diaries' => $diaries,
         ]);
     }
 
