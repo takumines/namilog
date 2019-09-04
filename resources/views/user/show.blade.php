@@ -20,10 +20,15 @@
           
             @foreach($spots as $spot)
               @if($spot->user_id == $user->id)
-                <h3>{{ $spot->name }}</h3>
+                <h3><a href="{{ route('spot.show', ['id' => $spot->id]) }}">{{ $spot->name }}</a></h3>
               @endif
             @endforeach
           
+            @foreach($diaries as $diary)
+              @if($diary->user_id == $user->id)
+                <h2><a href="{{ route('diary.show', ['id' => $diary->id]) }}">{{ $diary->title }}</a></h2>
+              @endif
+            @endforeach
 
           @if($user->id == $current_user->id)
             <div class="text-center">
