@@ -24,18 +24,21 @@
               @endif
             @endforeach
           
+
+          
             @foreach($diaries as $diary)
               @if($diary->user_id == $user->id)
                 <h2><a href="{{ route('diary.show', ['id' => $diary->id]) }}">{{ $diary->title }}</a></h2>
               @endif
             @endforeach
+          
 
           @if($user->id == $current_user->id)
             <div class="text-center">
               <a class="btn btn-lg btn-primary" href="{{ route('user.edit', ['id' => $user->id]) }}">編集</a>
             </div>
           @endif
-        </th>
+        </div>
       </div>
     </div>
   </div>
