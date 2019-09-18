@@ -3,29 +3,31 @@
 @section('content')
   <div class="container">
     <div class="row">
-      <div class="col col-md-8 mx-auto">
-        <div class="col col-md-5 mx-auto">
-          <h2 class="text-center  mb-5">タイムライン</h1>
+      <div class="col col-md-10 mx-auto">
+        <div class="col col-md-7 mx-auto">
+          <h2 class="text-center mb-4">タイムライン</h1>
         </div>
-        @foreach($diaries as $diary)
-          <div>
-            <th>
-              <td><a href="{{ route('diary.show', ['id' => $diary->id]) }}">{{ $diary->title }}</a></td>
-              <td>{{ $diary->score_label }}</td>
-              <td>{{ $diary->condition_label }}</td>
-              <td>{{ $diary->size_label }}</td>
-              <td>{{ $diary->body }}</td>
-              <td><a href="{{ route('spot.show', [ 'id' => $diary->spot_id ]) }}">{{ $diary->getSpotName() }}</a></td>
-              <div class="image col-md-8 mx-auto">
-                @if ($diary->image_path != null)
-                  <img src="{{ $diary->image_path }}" alt="" class="image-diary mx-auto">
-                @else
-                  <img src="{{ asset('images/nodiaryimage.jpg') }}" alt="" class="mx-auto">
-                @endif
+        <div class="row">
+          @foreach($diaries as $diary)
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+              @if ($diary->image_path != null)
+                  <img src="{{ $diary->image_path }}" alt="" class="card-img-top">
+              @else
+                  <img src="{{ asset('images/nodiaryimage.jpg') }}" alt="" class="card-img-top">
+              @endif
+              <div class="card-body bg-light">
+                <h4 class="card-title"><a href="{{ route('diary.show', ['id' => $diary->id]) }}">{{ $diary->title }}</a></h4>
+                <p class="card-text ">
+                  <p>by <a href="{{ route('user.show', ['id' => $diary->user_id]) }}">{{ $diary->getUserName() }}</a></p>
+                  <p>投稿日　{{ $diary->getFormattedCreatedAtAttribute() }}</p>
+                </p>
+                  
               </div>
-            </th>
+            </div>
           </div>
-        @endforeach
+          @endforeach
+        </div>
       </div>
     </div>
   </div>

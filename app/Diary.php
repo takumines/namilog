@@ -3,27 +3,38 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Diary extends Model
 {
     protected $fillable = ['title', 'user_id', 'spot_id', 'condition', 'size', 'score', 'body', 'image_path'];
-    /**
-         * このdiaryを保有するspotを取得
-         */
+    
         public function spot()
         {
             return $this->belongsTo('App\Spot');
         }
 
+        public function user()
+        {
+            return $this->belongsTo('App\User');
+        }
+
+        /**
+         * このdiaryを保有するuser名を取得
+         */
+        public function getUserName()
+        {
+            return $this->user->name;
+        }
+        
+        /**
+         * このdiaryを保有するspotを取得
+         */
         public function getSpotName()
         {
             return $this->spot->name;
         }
 
-        public function getSpotId()
-        {
-            return $this->spot->id;
-        }
     /**
      * config/condition.phpの数値を文字に変換
      */
@@ -54,6 +65,13 @@ class Diary extends Model
         return config('score')[$score_name]['label'];
     }
 
-    
+    /**
+     * 整形した日付
+     */
+    public function getFormattedCreatedAtAttribute()
+    {
+        $updated_at = $this->created_at;
+        return  date('Y年n月j日', strtotime($updated_at));
+    }
 
 }

@@ -21,7 +21,7 @@ img{
                   <img src="{{ asset('images/noprofileimage.jpg') }}" alt="" class="rounded border border-info mx-auto">
                 @endif
             </div>
-                <h3 class="mt-2 "><a href="{{ route('user.show', ['id', $user->id]) }}">{{ $user->name }}</a></h3>
+                <h3 class="mt-2"><a href="{{ route('user.show', ['id', $user->id]) }}">{{ $user->name }}</a></h3>
           </div>
         @endforeach
       </div>

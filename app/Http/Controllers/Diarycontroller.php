@@ -16,9 +16,11 @@ class DiaryController extends Controller
     public function list()
     {
         $diaries = Diary::all();
+        $users = User::all();
         
         return view('diary/list', [
             'diaries' => $diaries,
+            'users'   => $users,
             ]);
     }
 
