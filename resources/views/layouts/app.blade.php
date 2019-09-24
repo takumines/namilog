@@ -11,7 +11,7 @@
   <title>Nami Log</title>
   <!-- style -->
   <link href="/css/app.css" rel="stylesheet">
-  
+  @stack('css')
 </head>
 <body>
 <header>
@@ -37,7 +37,6 @@
       </div>
   @else
     <div class="navbar-nav ">
-      <a class="nav-item nav-link" href="#">About</a>
       <a class="nav-item nav-link" href="{{ route('diary.list') }}">タイムライン</a>
       <a class="nav-item nav-link" href="{{ route('diary.create') }}">日記投稿</a>
       <a class="nav-item nav-link" href="{{ route('user.list') }}">ユーザー一覧</a>
