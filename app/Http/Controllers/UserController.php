@@ -81,5 +81,4 @@ class UserController extends Controller
             'diaries' => $diaries,
         ]);
     }
-
 }

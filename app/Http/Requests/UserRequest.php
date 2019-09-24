@@ -25,6 +25,7 @@ class UserRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
+            'introduction' => 'string|max:150',
         ];
     }
 
@@ -32,6 +33,7 @@ class UserRequest extends FormRequest
     {
         return [
             'name' => 'ユーザー名',
+            'introduction' => '自己紹介'
         ];
     }
 }
