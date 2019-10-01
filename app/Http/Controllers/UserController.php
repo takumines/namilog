@@ -70,13 +70,12 @@ class UserController extends Controller
         $user = User::find($id);
         $current_user = Auth::user();
         $spots = Spot::all();
-        $diaries = Diary::all();
+        $diaries = Diary::where('user_id', '=', $user->id)->simplePaginate(3);
 
 
         return view('user/show', [
             'user' => $user,
             'current_user' => $current_user,
-            'id' => $user->id,
             'spots' => $spots,
             'diaries' => $diaries,
         ]);
