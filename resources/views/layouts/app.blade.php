@@ -7,7 +7,7 @@
 
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}" defer></script>
-  
+  <script src="{{ asset('js/del.js') }}" defer></script>
   <title>Nami Log</title>
   <!-- style -->
   <link href="/css/app.css" rel="stylesheet">

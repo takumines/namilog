@@ -27,11 +27,22 @@
         <h2 class="pt-4">コンディション： {{ $diary->condition_label }}</h2>
         <h2 class="pt-4">総合点数： {{ $diary->score_label }}</h2>
       </div>
-      
-        <div class="col-10 pt-3 mx-auto">
+      <div class="col-12 pt-3">
+          <div class="col-10 mx-auto">
             <h3 class="text-center">{{ $diary->body }}</h3>
+          </div>
+      </div>
+      @if($diary->user_id == $current_user->id)
+        <div class="col-12 pt-3 text-center">
+          <a class="btn btn-lg btn-primary"  href="{{ route('diary.edit', ['id' => $diary->id ]) }}" >編集</a>
+          
+            <form　class=”form-inline”  action="{{ route('diary.delete', ['id' => $diary->id]) }}" method="POST">
+              {{ csrf_field() }}
+              <input type="submit" value="削除" class="btn btn-danger btn-lg btn-dander" onClick="delete_alert(event);return false;">
+            </form>
+          
         </div>
-      
+      @endif
     </div>
   </div>
 @endsection

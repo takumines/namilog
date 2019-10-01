@@ -36,6 +36,7 @@ Route::group(['middleware' => 'auth'], function()
   Route::get('/diary/edit/{id}', 'DiaryController@edit')->name('diary.edit');
   Route::post('/diary/edit/{id}', 'DiaryController@update');
   Route::get('/diary/{id}', 'DiaryController@show')->name('diary.show');
+  Route::post('/diary/del/{id}', 'DiaryController@delete')->name('diary.delete');
   /* user */
   Route::get('/user/list', 'UserController@list')->name('user.list');
   Route::get('/user/edit/{id}', 'UserController@edit')->name('user.edit');

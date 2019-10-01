@@ -25,7 +25,7 @@ class SpotRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:spots,name',
+            'name'  => 'required',
             'place' => 'required',
         ];
     }
