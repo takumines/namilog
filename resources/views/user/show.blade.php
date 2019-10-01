@@ -23,8 +23,9 @@
       <div class="col-md-7">
           <h2 class="text-center">{{ $user->name }}</h2>
           <h4 class="pb-2">スタンス：</span> {{ $user->stance_label }}</h4>
-          <h4>ボード：<span class="pl-4">{{ $user->board_label }}</span></h4>
+          <h4 class="pb-2">ボード：<span class="pl-4">{{ $user->board_label }}</span></h4>
           <div class="col">
+            <h5 class="text-center mx-auto">自己紹介</h5>
             {{ $user->introduction }}
           </div>
       </div>
@@ -41,7 +42,9 @@
         </div>
           @foreach($spots as $spot)
             @if($spot->user_id == $user->id)
-              <h3><a href="{{ route('spot.show', ['id' => $spot->id]) }}">{{ $spot->name }}</a></h3>
+            <div class="my-3 pt-1 bg-light rounded shadow-sm">
+              <h3 class="text-center"><a href="{{ route('spot.show', ['id' => $spot->id]) }}">{{ $spot->name }}</a></h3>
+            </div>
             @endif
           @endforeach
       </div>

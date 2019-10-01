@@ -11,12 +11,12 @@
           @csrf
           <!-- スポット名フォーム -->
           <div class="form-group">
-            <label class="col-md-3 mx-auto" for="name"><span class="badge badge-danger">必須</span>スポット名</label>
+            <label class="col-md-3 mx-auto" for="name">スポット名</label>
             <input class="form-control" type="text" name="name" value="{{ old('name', $spot->name) }}">
           </div>
           <!-- 都道府県入力フォーム -->
           <div class="form-group">
-            <label class="col-md-3 mx-auto" for="place"><span class="badge badge-danger">必須</span>都道府県</label>
+            <label class="col-md-3 mx-auto" for="place">都道府県</label>
             <input class="form-control" type="text" name="place" value="{{ old('place', $spot->place) }}">
           </div>
           <!-- メモ入力エリア -->

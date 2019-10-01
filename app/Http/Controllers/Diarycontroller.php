@@ -15,7 +15,7 @@ class DiaryController extends Controller
 {
     public function list()
     {
-        $diaries = Diary::all();
+        $diaries = Diary::simplePaginate(6);
         $users = User::all();
         
         return view('diary/list', [
@@ -38,10 +38,11 @@ class DiaryController extends Controller
 
     public function add()
     {
+        $user = Auth::user();
         $spots = Spot::all();
-
-
+        
         return view('diary.create', [
+            'user' => $user,
             'spots' => $spots,
         ]);
     }
@@ -122,6 +123,18 @@ class DiaryController extends Controller
 
         return redirect()->route('diary.show', [
             'id' => $diary->id,
+        ]);
+    }
+
+    public function delete($id)
+    {
+        $diary = Diary::find($id)->delete();
+        $diaries = Diary::all();
+        $users = User::all();
+
+        return redirect()->route('diary.list', [
+            'diaries' => $diaries,
+            'users' => $users,
         ]);
     }
 }

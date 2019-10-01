@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Spot;
 use App\Diary;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\SpotRequest;
@@ -14,9 +15,11 @@ class SpotController extends Controller
     public function show(int $id)
     {
         $spot = Spot::find($id);
+        $user = Auth::user();
 
         return view('spot/show', [
             'spot' => $spot, 
+            'user' => $user,
             ]);
     }
 

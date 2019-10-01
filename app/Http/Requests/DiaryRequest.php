@@ -26,6 +26,7 @@ class DiaryRequest extends FormRequest
         return [
             'title' => 'required',
             'body'  => 'required',  
+            'spot_id' => 'required',
         ];
     }
 
@@ -34,6 +35,14 @@ class DiaryRequest extends FormRequest
         return [
             'title' => 'タイトル',
             'body'  => 'メモ',
+            'spot_id' => 'スポット'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'spot_id.required' => 'スポットを作成してください。'
         ];
     }
 }
