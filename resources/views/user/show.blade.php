@@ -74,6 +74,9 @@
             @endif
           @endforeach
         </div>
+        <div class="d-flex ">
+          {{ $diaries->links() }}
+        </div>
       </div>
     </div>
   </div>
