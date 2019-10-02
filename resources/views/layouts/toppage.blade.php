@@ -4,20 +4,23 @@
   <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+    
     <title>{{ config('app.name', 'Nami Log') }}</title>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/del.js') }}" defer></script>
     
+    <!-- fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Noto+Sans+JP:400,700" rel="stylesheet" type="text/css">
+
     <!-- style -->
     <link href="/css/app.css" rel="stylesheet">
-    @stack('css')
+    <link href="/css/home.css" rel="stylesheet">
+
   </head>
-  <body>
-    <header>
-      <nav class="navbar navbar-dark navbar-expand-md bg-info ">
-        <a href="{{ route('start.home') }}" class="navbar-brand">Nami Log</a>
+<body>
+  <nav class="navbar navbar-dark navbar-expand-md bg-info ">
+        <a href="{{ route('diary.list') }}" class="navbar-brand">Nami Log</a>
         @if(Auth::check())
           <div class="nav-item">ようこそ、{{ Auth::user()->name }}さん</div>
         @endif
@@ -53,7 +56,7 @@
       </nav>
   </header>
   
-  <main class="py-4 pt-5">
+  <main>
     @yield('content')
   </main>
 </body>

@@ -1,22 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+@extends('layouts.start')
 
-  <!-- Scripts -->
-  <script src="{{ asset('js/app.js') }}" defer></script>
-  
-  <title>Nami Log</title>
-  <!-- style -->
-  <link href="/css/app.css" rel="stylesheet">
-  
-</head>
-<body>
-<header>
-</header>
-  <main class="py-4 pt-5">
+@section('content')
   <div class="container">
     <div class="row">
       <div class="col col-md-8 mx-auto">
@@ -50,6 +34,4 @@
       </div>
     </div>
   </div>
-  </main>
-</body>
-</html>
+@endsection
