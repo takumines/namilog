@@ -14,6 +14,11 @@ class StartController extends Controller
         return view('start/start');
     }
 
+    public function home()
+    {
+        return view('start/home');
+    }
+
     public function add()
     {
         return view('start/create');

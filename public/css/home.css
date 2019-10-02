@@ -1,0 +1,69 @@
+@charset "utf-8";
+
+#toppage {
+  z-index: 0;
+  margin-right: auto;
+  margin-left: auto;
+  width:100%;                                            
+  height:715px;
+  background-image: url('/images/toppage.jpg');
+  background-color:rgba(255,255,255,0.3);
+  background-blend-mode:lighten;
+  background-position:center bottom;
+  background-size: cover;
+  
+}
+
+.top-body{
+  
+  margin-top: 150px;
+  
+}
+
+.t-title {
+  position: relative;
+  font-size: 70px;
+  display: inline;
+  padding: 0.25em 1em;
+  border-top: solid 2px black;
+  border-bottom: solid 2px black;
+  font-size: 6vw;
+}
+.t-title:before, .t-title:after {
+  content: '';
+  position: absolute;
+  top: -7px;
+  width: 2px;
+  height: -webkit-calc(100% + 14px);
+  height: calc(100% + 14px);
+  background-color: black;
+  font-size: 6vw;
+}
+.t-title:before {
+  left: 7px;
+  font-size: 6vw;
+}
+.t-title:after {
+  right: 7px;
+  font-size: 6vw;
+}
+
+.subtitle {
+  margin-top: 70px;
+}
+
+.test-login {
+  margin-top: 40px;
+}
+
+.normal-btn {
+  margin-top: 30px;
+}
+
+.login {
+  margin-right: 10px;
+}
+
+.register {
+  margin-left: 10px;
+}
