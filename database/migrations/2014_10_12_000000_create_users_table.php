@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->integer('stance')->default(1);
             $table->integer('board')->default(1);
-            $table->string('introduction');
+            $table->string('introduction')->nullable();
             $table->string('image_path')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
