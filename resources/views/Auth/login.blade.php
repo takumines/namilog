@@ -7,6 +7,7 @@
         <h1 class="text-center mb-5">ログイン</h1>
         <div class="card"> 
           <div class="card-body m-2">
+            
             <!-- エラー処理 -->
             @include('partials.errors.form_errors')
             <form action="{{ route('login') }}" method="POST">
