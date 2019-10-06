@@ -23,6 +23,9 @@
                 <h3 class="mt-2"><a href="{{ route('user.show', ['id' => $user->id]) }}">{{ $user->name }}</a></h3>
           </div>
         @endforeach
+        <div class="d-flex ">
+          {{ $users->links() }}
+        </div>
       </div>
     </div>
   </div>

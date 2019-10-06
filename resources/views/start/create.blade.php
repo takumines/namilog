@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col col-md-8 mx-auto">
-          <h1 class="text-center mb-5">スポット作成</h1>
+          <h1 class="text-center mb-5">お気に入りのスポットを登録しよう</h1>
         <!-- エラー処理 -->
         @include('partials.errors.form_errors')
         <form action="{{ route('start.create') }}" method="post">

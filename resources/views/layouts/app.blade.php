@@ -9,6 +9,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/del.js') }}" defer></script>
+
     
     <!-- style -->
     <link href="/css/app.css" rel="stylesheet">
@@ -42,8 +43,8 @@
               <a class="nav-item nav-link" href="{{ route('diary.create') }}">日記投稿</a>
               <a class="nav-item nav-link" href="{{ route('user.list') }}">ユーザー一覧</a>
               <a class="nav-item nav-link" href="{{ route('user.show', ['id' => Auth::user()->id]) }}">プロフィール</a>
-              <a class="nav-item nav-link" href="{{ route('logout') }}" id="logout" 
-                onclick="event.preventDefault();document.getElementById('logout-form').submit();">ログアウト</a>
+              <a class="nav-item nav-link" href="{{ route('logout') }}" id="logout"
+              onclick="event.preventDefault();document.getElementById('logout-form').submit();">ログアウト</a>
               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
               </form>

@@ -9,11 +9,6 @@ use Illuminate\Support\Facades\Auth;
 
 class StartController extends Controller
 {
-    public function index()
-    {
-        return view('start/start');
-    }
-
     public function home()
     {
         return view('start/home');
@@ -26,6 +21,8 @@ class StartController extends Controller
 
     public function create(SpotRequest $request)
     {
+        $users = User::all();
+        $diaries = Diary::all();
         $spot = new Spot();
         $user = Auth::user();
         $spot->user_id = $user->id;
@@ -33,6 +30,9 @@ class StartController extends Controller
         
         $spot->fill($form)->save();
 
-        return redirect()->route('diary.index');
+        return redirect()->route('diary.list', [
+            'diaries' => $diaries,
+            'users' => $users,
+        ]);
     }
 }
