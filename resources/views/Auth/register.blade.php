@@ -17,7 +17,7 @@
               </div>
               <div class="form-group row">
                 <label for="email" class="col-md-6">メールアドレス</label>
-                <input  type="text" class="form-control" name="email" value="{{ old('email') }}">
+                <input  type="text" class="form-control" id="email" name="email" value="{{ old('email') }}">
               </div>
               <div class="form-group row">
                 <label for="password" class="col-md-6">パスワード</label>
