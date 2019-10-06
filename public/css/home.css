@@ -22,12 +22,12 @@
 
 .t-title {
   position: relative;
-  font-size: 70px;
   display: inline;
   padding: 0.25em 1em;
   border-top: solid 2px black;
   border-bottom: solid 2px black;
   font-size: 6vw;
+  font-family: 'Quicksand', sans-serif;
 }
 .t-title:before, .t-title:after {
   content: '';
@@ -37,15 +37,15 @@
   height: -webkit-calc(100% + 14px);
   height: calc(100% + 14px);
   background-color: black;
-  font-size: 6vw;
+  font-size: 4vw;
 }
 .t-title:before {
   left: 7px;
-  font-size: 6vw;
+  font-size: 4vw;
 }
 .t-title:after {
   right: 7px;
-  font-size: 6vw;
+  font-size: 4vw;
 }
 
 .subtitle {

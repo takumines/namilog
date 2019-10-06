@@ -35,12 +35,10 @@
       @if($diary->user_id == $current_user->id)
         <div class="col-12 pt-3 text-center">
           <a class="btn btn-lg btn-primary"  href="{{ route('diary.edit', ['id' => $diary->id ]) }}" >編集</a>
-          
-            <form　class=”form-inline”  action="{{ route('diary.delete', ['id' => $diary->id]) }}" method="POST">
-              {{ csrf_field() }}
-              <input type="submit" value="削除" class="btn btn-danger btn-lg btn-dander" onClick="delete_alert(event);return false;">
-            </form>
-          
+          <form　class=”form-inline”  action="{{ route('diary.delete', ['id' => $diary->id]) }}" method="POST">
+            {{ csrf_field() }}
+            <input type="submit" value="削除" class="btn btn-danger btn-lg btn-dander" onClick="delete_alert(event);return false;">
+          </form>
         </div>
       @endif
     </div>
