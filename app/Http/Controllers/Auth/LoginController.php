@@ -44,4 +44,9 @@ class LoginController extends Controller
             'password' => 'パスワード',
         ]);
     }
+
+    public function showLoginForm()
+    {
+        return view('auth.login');
+    }
 }
