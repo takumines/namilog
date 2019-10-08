@@ -27,6 +27,7 @@ class SpotRequest extends FormRequest
         return [
             'name'  => 'required',
             'place' => 'required',
+            'body'  => 'required',
         ];
     }
 
@@ -35,6 +36,7 @@ class SpotRequest extends FormRequest
         return [
             'name' => 'スポット名',
             'place' => '都道府県',
+            'body'  => '特長メモ',
         ];
     }
 }
