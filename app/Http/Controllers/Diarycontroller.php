@@ -60,7 +60,7 @@ class DiaryController extends Controller
             // 画像の名前を取得 
             $filename = $form['image']->getClientOriginalName(); 
             // 画像をリサイズ 
-            $resize_img = Image::make($form['image'])->resize(320, 240)->encode($extension); 
+            $resize_img = \Image::make($form['image'])->resize(320, 240)->encode($extension); 
             // s3のuploadsファイルに追加 
             $path = Storage::disk('s3')->put('/diary/'.$filename,(string)$resize_img, 'public'); 
             // 画像のURLを参照 
