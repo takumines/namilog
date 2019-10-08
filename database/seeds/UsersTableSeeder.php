@@ -20,7 +20,7 @@ class UsersTableSeeder extends Seeder
             'introduction' => 'testtest',
             'email' => 'testsurf@dummy',
             'email_verified_at' => now(),
-            'password' => bcrypt('namitest'), // password
+            'password' => bcrypt('testtest'), // password
             'remember_token' => Str::random(10),
         ]);
     }
