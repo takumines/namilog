@@ -12,7 +12,7 @@
               <form method='POST' action="{{ route('login') }}">
                 @csrf
                 <input id="email" type="hidden" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="testsurf@dummy" required autofocus>
-                <input id="password" type="hidden" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" value="namitest" required>
+                <input id="password" type="hidden" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" value="testtest" required>
                 <button class="btn btn-lg btn-warning ">{{ __('テストログイン') }}</button>
               </form>
             </div>
