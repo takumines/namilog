@@ -16,10 +16,6 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function()
 {
-  /* home */
-  Route::get('/start/create', 'StartController@add')->name('start.create');
-  Route::post('/start/create', 'StartController@create');
-
   /* spot */
   Route::get('/spot/create', 'SpotController@add')->name('spot.create');
   Route::post('/spot/create', 'SpotController@create');
