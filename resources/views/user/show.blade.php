@@ -29,11 +29,13 @@
             {{ $user->introduction }}
           </div>
       </div>
-      <div class="col pt-3">
-        <div class="text-center">
-          <a class="btn btn-lg btn-primary"  href="{{ route('user.edit', [ 'id' => $user->id ]) }}" >編集</a>
+      @if($current_user->id == $user->id)
+        <div class="col pt-3">
+          <div class="text-center">
+            <a class="btn btn-lg btn-primary"  href="{{ route('user.edit', [ 'id' => $user->id ]) }}" >編集</a>
+          </div>
         </div>
-      </div>
+      @endif
     </div>
     <div class="row align-items-start">
       <div class="col-md-3 mb-3 bg-white rounded shadow-sm">
