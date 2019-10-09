@@ -21,7 +21,7 @@
           </div>
       </div>
       <div class="col-md-7">
-          <h2 class="text-center">{{ $user->name }}</h2>
+          <h2 class="text-center mt-3">{{ $user->name }}</h2>
           <h4 class="pb-2">スタンス：</span> {{ $user->stance_label }}</h4>
           <h4 class="pb-2">ボード：<span class="pl-4">{{ $user->board_label }}</span></h4>
           <div class="col">
