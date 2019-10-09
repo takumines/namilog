@@ -19,11 +19,12 @@
               <p class="mt-2 text-center">{{ $spot->body }}</p>
             </div>
           </div>
-          @if($user->id == $spot->user_id)
             <div class="text-center">
+              <a class="btn btn-lg btn-success" href="{{ route('diary.list') }}">戻る</a>
+              @if($user->id == $spot->user_id)
                 <a class="btn btn-lg btn-primary"  href="{{ route('spot.edit', [ 'id' => $spot->id ]) }}" >編集</a>
+              @endif
             </div>
-          @endif
         </div>
       </div>
     </div>

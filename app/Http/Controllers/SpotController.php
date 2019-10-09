@@ -37,9 +37,7 @@ class SpotController extends Controller
         
         $spot->fill($form)->save();
 
-        return redirect()->route('spot.show', [
-            'id' => $spot->id,
-        ]);
+        return redirect()->route('diary.create');
     }
 
     public function edit(int $id, Spot $spot)
