@@ -15,7 +15,7 @@ class DiaryController extends Controller
 {
     public function list()
     {
-        $diaries = Diary::simplePaginate(6);
+        $diaries = Diary::orderBy('created_at','desc')->simplePaginate(6);
         $users = User::all();
         
         return view('diary/list', [
