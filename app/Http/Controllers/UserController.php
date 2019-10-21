@@ -25,7 +25,7 @@ class UserController extends Controller
     public function edit(int $id)
     {
         $user = User::find($id);
-
+        
         return view('user.edit', [
             'user' => $user,
             'id' => $user->id,
@@ -70,7 +70,7 @@ class UserController extends Controller
         $user = User::find($id);
         $current_user = Auth::user();
         $spots = Spot::all();
-        $diaries = Diary::where('user_id', '=', $user->id)->simplePaginate(3);
+        $diaries = Diary::where('user_id', '=', $user->id)->orderBy('created_at','desc')->simplePaginate(3);
 
 
         return view('user/show', [

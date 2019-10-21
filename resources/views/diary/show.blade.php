@@ -15,7 +15,7 @@
           @if ($diary->image_path != null)
             <img src="{{ $diary->image_path }}" alt="" class="image-diary rounded border border-info ">
           @else
-            <img src="{{ asset('images/nodiaryimage.jpg') }}" alt="" class="rounded border border-info">
+            <img src="{{ asset('images/no-image.jpg') }}" alt="" class="rounded border border-info">
           @endif
         </div>
       </div>
