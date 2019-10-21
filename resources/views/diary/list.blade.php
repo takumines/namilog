@@ -18,7 +18,7 @@
               @if ($diary->image_path != null)
                   <img src="{{ $diary->image_path }}" alt="" class="card-img-top">
               @else
-                  <img src="{{ asset('images/nodiaryimage.jpg') }}" alt="" class="card-img-top">
+                  <img src="{{ asset('images/no-image.jpg') }}" alt="" class="card-img-top">
               @endif
               <div class="card-body bg-light">
                 <h4 class="card-title"><a href="{{ route('diary.show', ['id' => $diary->id]) }}">{{ $diary->title }}</a></h4>

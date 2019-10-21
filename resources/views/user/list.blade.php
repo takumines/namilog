@@ -17,7 +17,7 @@
                 @if ($user->image_path != null)
                   <img src="{{ $user->image_path }}" alt="" class="image-user rounded border border-info mx-auto">
                 @else
-                  <img src="{{ asset('images/noprofileimage.jpg') }}" alt="" class="rounded border border-info mx-auto">
+                  <img src="{{ asset('images/no-image.jpg') }}" alt="" class="rounded border border-info mx-auto">
                 @endif
             </div>
                 <h3 class="mt-2"><a href="{{ route('user.show', ['id' => $user->id]) }}">{{ $user->name }}</a></h3>
