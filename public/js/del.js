@@ -3,5 +3,6 @@ function delete_alert(e){
     window.alert('キャンセルされました'); 
     return false;
   }
-  document.deleteform.submit();
+  document.delete.submit();
 };
+
