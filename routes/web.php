@@ -35,4 +35,7 @@ Route::group(['middleware' => 'auth'], function()
   Route::get('/user/edit/{id}', 'UserController@edit')->name('user.edit');
   Route::post('/user/edit/{id}', 'UserController@update');
   Route::get('/user/{id}', 'UserController@show')->name('user.show');
+  /* comments */
+  Route::post('/comment', 'CommentController@create')->name('comment.create');
+  Route::post('/comment/del', 'CommentController@delete')->name('comment.delete');
 });
