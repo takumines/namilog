@@ -9,6 +9,11 @@ class Diary extends Model
 {
     protected $fillable = ['title', 'user_id', 'spot_id', 'condition', 'size', 'score', 'body', 'image_path'];
     
+        public function comments()
+        {
+            return $this->hasMany('App\Comment');
+        }
+
         public function spot()
         {
             return $this->belongsTo('App\Spot');
@@ -18,6 +23,8 @@ class Diary extends Model
         {
             return $this->belongsTo('App\User');
         }
+
+        
 
         /**
          * このdiaryを保有するuser名を取得
