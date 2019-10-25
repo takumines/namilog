@@ -80,7 +80,7 @@
               <a href="{{ route('user.show', [ 'id' => $comment->user_id ]) }}">
                 <p class="float-right mb-0 ml-2">{{ $comment->getCommentUserName() }}</p>
               </a>
-              <p class="float-right mb-0">{{ $diary->getFormattedCreatedAtAttribute() }}</p>
+              <p class="float-right mb-0">{{ $comment->getFormattedCreatedAtAttribute() }}</p>
             </div>
           </div>
       @endforeach

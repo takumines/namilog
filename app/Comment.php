@@ -30,8 +30,8 @@ class Comment extends Model
      */
     public function getFormattedCreatedAtAttribute()
     {
-        $updated_at = $this->created_at;
-        return  date('Y年n月j日', strtotime($updated_at));
+        $created_at = $this->created_at;
+        return  date('Y年n月j日', strtotime($created_at));
     }
 
 }
