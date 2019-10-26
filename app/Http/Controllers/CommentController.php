@@ -6,11 +6,12 @@ use App\Comment;
 use App\User;
 use App\Diary;
 use Illuminate\Http\Request;
+use App\Http\Requests\CommentRequest;
 use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
-    public function create(Request $request)
+    public function create(CommentRequest $request)
     {
         $comment = new Comment();
         $current_user = Auth::user();
