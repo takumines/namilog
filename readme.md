@@ -3,9 +3,9 @@ NamiLogはサーフィンの練習を記録し他のユーザーと記録をシ�
 波の状態やコンディションを写真付きで記録できるので後から振り返ったときにどのようなシチュエーションだったか鮮明に思い出せます。
 
 ## URL
-http://nami-log.com
-https://nami-log.herokuapp.com
-<br>テストログインから簡単にログインすることができます。
+- http://nami-log.com
+- https://nami-log.herokuapp.com
+<br>テストログインから簡単にログインすることができます。</br>
 
 ## 主な機能
 - ユーザー登録、編集機能
