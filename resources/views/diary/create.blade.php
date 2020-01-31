@@ -21,9 +21,7 @@
               @foreach($spots as $spot)
                 @if($user->id == $spot->user_id)
                   <option value="{{ $spot->id }}">{{ $spot->name }}</option>
-                
                 @endif
-                
               @endforeach
             </select>
           </div>
