@@ -37,11 +37,7 @@
             <div class="col-md-10">
               <input type="file" class="form-control-file" name="image">
               <div class="form-text form-info">
-                @if($user->image_path != null)
-                  設定中: あり
-                @else
-                  設定中: なし
-                @endif
+                {{ $user->image_path != null ? "設定中: あり" : "設定中: なし" }}
               </div>
               <div class="form-check">
                 <label class="form-check-label">
