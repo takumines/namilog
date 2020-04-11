@@ -11,6 +11,7 @@
 |
 */
 Route::get('/', 'StartController@home')->name('start.home');
+
 /* Auth */
 Auth::routes();
 
