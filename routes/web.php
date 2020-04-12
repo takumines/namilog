@@ -42,5 +42,5 @@ Route::group(['middleware' => 'auth'], function()
 });
 
 /* twitter */
-Route::get('login/twitter', 'Auth\LoginController@redirectToTwitterProvider');
+Route::get('login/twitter', 'Auth\LoginController@redirectToTwitterProvider')->name('twitter.login');
 Route::get('login/twitter/callback', 'Auth\LoginController@handleTwitterProviderCallback');
