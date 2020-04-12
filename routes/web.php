@@ -40,3 +40,7 @@ Route::group(['middleware' => 'auth'], function()
   Route::post('/comment', 'CommentController@create')->name('comment.create');
   Route::post('/comment/del', 'CommentController@delete')->name('comment.delete');
 });
+
+/* twitter */
+Route::get('login/twitter', 'Auth\LoginController@redirectToTwitterProvider');
+Route::get('login/twitter/callback', 'Auth\LoginController@handleTwitterProviderCallback');
