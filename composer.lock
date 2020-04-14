@@ -2748,6 +2748,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2762,6 +2763,8 @@
                     "type": "tidelift"
                 }
             ],
+=======
+>>>>>>> 95eaa757fdde9ad7159ea58e68fb1b1ca2560afd
             "time": "2020-03-30T14:07:33+00:00"
         },
         {
@@ -2928,6 +2931,7 @@
                 "mime",
                 "mime-type"
             ],
+<<<<<<< HEAD
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2942,6 +2946,8 @@
                     "type": "tidelift"
                 }
             ],
+=======
+>>>>>>> 95eaa757fdde9ad7159ea58e68fb1b1ca2560afd
             "time": "2020-03-27T16:56:45+00:00"
         },
         {
@@ -3149,6 +3155,7 @@
                 "portable",
                 "shim"
             ],
+<<<<<<< HEAD
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3163,6 +3170,8 @@
                     "type": "tidelift"
                 }
             ],
+=======
+>>>>>>> 95eaa757fdde9ad7159ea58e68fb1b1ca2560afd
             "time": "2020-03-09T19:04:49+00:00"
         },
         {
@@ -3222,6 +3231,7 @@
                 "portable",
                 "shim"
             ],
+<<<<<<< HEAD
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3236,6 +3246,8 @@
                     "type": "tidelift"
                 }
             ],
+=======
+>>>>>>> 95eaa757fdde9ad7159ea58e68fb1b1ca2560afd
             "time": "2020-03-09T19:04:49+00:00"
         },
         {
@@ -3291,6 +3303,7 @@
                 "portable",
                 "shim"
             ],
+<<<<<<< HEAD
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3305,6 +3318,8 @@
                     "type": "tidelift"
                 }
             ],
+=======
+>>>>>>> 95eaa757fdde9ad7159ea58e68fb1b1ca2560afd
             "time": "2020-02-27T09:26:54+00:00"
         },
         {
