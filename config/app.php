@@ -176,6 +176,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        Laravel\Socialite\SocialiteServiceProvider::class,
+
     ],
 
     /*
@@ -229,6 +231,7 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         /* originals */
         'ImageClass' => app\Library\DiaryClass::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
     ],
 
 ];

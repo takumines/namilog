@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
       <div class="col-md-6">
         <h1 class="text-center mb-5">ログイン</h1>
-        <div class="card"> 
+        <div class="card">
           <div class="card-body m-2">
             <!-- エラー処理 -->
             @include('partials.errors.form_errors')
@@ -30,6 +30,11 @@
               </div>
               <div class="text-center">
                 ※<a href="{{ route('password.request') }}">パスワードを忘れた方</a>
+              </div>
+              <div class="text-center twitter-login">
+                <a href="{{ route('twitter.login') }}">
+                  <button class="btn btn-lg btn-primary" type="button">Twitterでログイン</button>
+                </a>
               </div>
             </form>
           </div>

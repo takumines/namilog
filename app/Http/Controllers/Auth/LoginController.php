@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Laravel\Socialite\Facades\Socialite;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -48,5 +51,25 @@ class LoginController extends Controller
     public function showLoginForm()
     {
         return view('auth.login');
+    }
+
+    public function redirectToTwitterProvider()
+    {
+        return Socialite::driver('twitter')->redirect();
+    }
+
+    public function handleTwitterProviderCallback()
+    {
+        try {
+            $user = Socialite::with('twitter')->user();
+        }
+        catch (\Exception $e) {
+            return redirect('/login')->with('oauth_error', 'ログインに失敗しました');
+        }
+
+        $myinfo = User::firstOrCreate(['token' => $user->token],
+                    ['name' => $user->name,'email' => $user->getEmail(),]);
+                    Auth::login($myinfo);
+                    return redirect()->to('/');
     }
 }
