@@ -14,8 +14,14 @@ class CreateDiaryUserTable extends Migration
     public function up()
     {
         Schema::create('diary_user', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
+            $table->integer('user_id')->unsigned();
+            $table->integer('diary_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('diary_id')->references('id')->on('diaries')->onDelete('cascade');
+            $table->unique(['user_id', 'diary_id']);
         });
     }
 
