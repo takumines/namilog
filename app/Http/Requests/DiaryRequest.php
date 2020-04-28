@@ -25,8 +25,9 @@ class DiaryRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'body'  => 'required',  
+            'body'  => 'required',
             'spot_id' => 'required',
+            'image' => 'file|image|mimes:jpeg,png,jpg,gif',
         ];
     }
 
