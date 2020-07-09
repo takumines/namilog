@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Laravel\Socialite\Facades\Socialite;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Contracts\Validation\Validator;
 
 class LoginController extends Controller
 {
@@ -40,9 +41,9 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    protected function validator(array $data)
+    protected function validator(array $data, validator $validator)
     {
-        return Validator::make($data,[
+        return $validator->make($data,[
             'email' => 'メールアドレス',
             'password' => 'パスワード',
         ]);
