@@ -5,11 +5,8 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Spot;
 use App\Diary;
-use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
-use Intervention\Image\Facades\Image;
 use App\Library\DiaryClass;
 
 class UserController extends Controller
