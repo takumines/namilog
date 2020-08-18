@@ -17,7 +17,7 @@ class SpotController extends Controller
         $user = Auth::user();
 
         return view('spot/show', [
-            'spot' => $spot, 
+            'spot' => $spot,
             'user' => $user,
         ]);
     }

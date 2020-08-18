@@ -19,7 +19,7 @@ class DiaryController extends Controller
      */
     public function list(Diary $diary, User $user)
     {
-        $diaries = $diary->orderBy('created_at','desc')->simplePaginate(6);
+        $diaries = $diary->orderBy('created_at', 'desc')->simplePaginate(6);
         $users = $user->all();
         
         return view('diary/list', [
@@ -35,7 +35,7 @@ class DiaryController extends Controller
     public function show(Diary $diary)
     {
         $current_user = Auth::user();
-        $comments = Comment::where('diary_id', '=', $diary->id)->orderBy('created_at','desc')->simplePaginate(5);
+        $comments = Comment::where('diary_id', '=', $diary->id)->orderBy('created_at', 'desc')->simplePaginate(5);
 
         return view('diary/show', [
             'diary' => $diary,
@@ -66,7 +66,7 @@ class DiaryController extends Controller
      */
     public function store(DiaryRequest $request, Diary $diary)
     {
-        DiaryClass::createDiary($request,$diary);
+        DiaryClass::createDiary($request, $diary);
 
         return redirect()->route('diary.show', [
             'diary' => $diary

@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Carbon\Carbon;
 
 class Comment extends Model
 {
@@ -33,5 +32,4 @@ class Comment extends Model
         $created_at = $this->created_at;
         return  date('Y年n月j日', strtotime($created_at));
     }
-
 }

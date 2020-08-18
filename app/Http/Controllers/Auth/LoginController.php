@@ -21,7 +21,6 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
-
     use AuthenticatesUsers;
 
     /**
@@ -43,7 +42,7 @@ class LoginController extends Controller
 
     protected function validator(array $data, validator $validator)
     {
-        return $validator->make($data,[
+        return $validator->make($data, [
             'email' => 'メールアドレス',
             'password' => 'パスワード',
         ]);
@@ -63,14 +62,19 @@ class LoginController extends Controller
     {
         try {
             $user = Socialite::with('twitter')->user();
-        }
-        catch (\Exception $e) {
+        } catch (\Exception $e) {
             return redirect('/login')->with('oauth_error', 'ログインに失敗しました');
         }
 
-        $myinfo = User::firstOrCreate(['token' => $user->token],
-                    ['name' => $user->name,'email' => $user->getEmail(),]);
-                    Auth::login($myinfo);
-                    return redirect()->to('/');
+        $myinfo = User::firstOrCreate(
+            ['token' => $user->token],
+            [
+                'name' => $user->name,
+                'email' => $user->getEmail(),
+            ]
+        );
+        Auth::login($myinfo);
+
+        return redirect()->to('/');
     }
 }

@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
-use App\User;
-use App\Diary;
 use Illuminate\Http\Request;
 use App\Http\Requests\CommentRequest;
 use Illuminate\Support\Facades\Auth;
@@ -31,5 +29,4 @@ class CommentController extends Controller
     
         return redirect()->back();
     }
-    
 }
