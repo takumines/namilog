@@ -6,17 +6,21 @@ use App\Diary;
 use App\Spot;
 use App\User;
 use App\Comment;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\DiaryRequest;
 use App\Library\DiaryClass;
 
 class DiaryController extends Controller
 {
-    public function list()
+    /**
+     * @param Diary $diary
+     * @param User $user
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function list(Diary $diary, User $user)
     {
-        $diaries = Diary::orderBy('created_at','desc')->simplePaginate(6);
-        $users = User::all();
+        $diaries = $diary->orderBy('created_at','desc')->simplePaginate(6);
+        $users = $user->all();
         
         return view('diary/list', [
             'diaries' => $diaries,
@@ -24,6 +28,10 @@ class DiaryController extends Controller
             ]);
     }
 
+    /**
+     * @param Diary $diary
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function show(Diary $diary)
     {
         $current_user = Auth::user();
@@ -65,35 +73,49 @@ class DiaryController extends Controller
         ]);
     }
 
-    public function edit(int $id, Diary $diary, Spot $spots)
+    /**
+     * @param Diary $diary
+     * @param Spot $spot
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function edit(Diary $diary, Spot $spot)
     {
-        $diary = Diary::find($id);
-        $spots = Spot::all();
+        $spots = $spot->all();
         return view('diary/edit', [
             'diary' => $diary,
             'spots'  => $spots,
         ]);
     }
 
-    public function update(DiaryRequest $request) 
+    /**
+     * @param DiaryRequest $request
+     * @param Diary $diary
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(DiaryRequest $request, Diary $diary)
     {
-        $diary = DiaryClass::updateDiary($request);
+        DiaryClass::updateDiary($request, $diary);
         
         return redirect()->route('diary.show', [
-            'id' => $diary->id,
+            'diary' => $diary
         ]);
     }
 
-    public function delete(Request $request)
+    /**
+     * @param Diary $diary
+     * @param User $user
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
+     */
+    public function delete(Diary $diary, User $user)
     {
-        $diary = Diary::find($request->id);
-        $comments = Comment::where('diary_id', '=', $diary->id)->delete();
+        Comment::where('diary_id', '=', $diary->id)->delete();
         $diary->delete();
-        $diareis = Diary::all();
-        $users = User::all();
+        $diaries = $diary->all();
+        $users = $user->all();
 
         return redirect()->route('diary.list', [
-            'diareis' => $diareis,
+            'diaries' => $diaries,
             'users'   => $users,
         ]);
     }

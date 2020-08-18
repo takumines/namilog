@@ -34,8 +34,8 @@
       </div>
       @if($diary->user_id == $current_user->id)
         <div class="col-12 pt-3 text-center">
-          <a class="btn btn-lg btn-primary"  href="{{ route('diary.edit', ['id' => $diary->id ]) }}">編集</a>
-          <form class="d-inline" action="{{ route('diary.delete', ['id' => $diary->id]) }}" method="POST">
+          <a class="btn btn-lg btn-primary"  href="{{ route('diary.edit', ['diary' => $diary->id ]) }}">編集</a>
+          <form class="d-inline" action="{{ route('diary.delete', ['diary' => $diary->id]) }}" method="POST">
             @csrf 
             <input type="submit" name="delete" value="削除" class=" btn btn-lg btn-danger" onClick="delete_alert(event);return false;">
           </form>
@@ -49,7 +49,7 @@
     <div class="row p-4 mb-3 bg-white rounded shadow-sm">
       <div class="col col-md-10 mx-auto">
         @include('partials.errors.form_errors')
-        <form action="{{ route('comment.create', ['id' => $diary->id]) }}" method="POST">
+        <form action="{{ route('comment.create', ['diary' => $diary->id]) }}" method="POST">
           @csrf
           <input type="hidden"  name="diary_id" value="{{ $diary->id }}">
           <div class=" form-group">

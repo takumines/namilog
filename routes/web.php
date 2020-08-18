@@ -28,9 +28,9 @@ Route::group(['middleware' => 'auth'], function()
   Route::get('/diary/create', 'DiaryController@create')->name('diary.create');
   Route::post('/diary/create', 'DiaryController@store');
   Route::get('/diary/{diary}', 'DiaryController@show')->name('diary.show');
-  Route::get('/diary/edit/{id}', 'DiaryController@edit')->name('diary.edit');
-  Route::post('/diary/edit/{id}', 'DiaryController@update');
-  Route::post('/diary/del/{id}', 'DiaryController@delete')->name('diary.delete');
+  Route::get('/diary/edit/{diary}', 'DiaryController@edit')->name('diary.edit');
+  Route::post('/diary/edit/{diary}', 'DiaryController@update');
+  Route::post('/diary/del/{diary}', 'DiaryController@delete')->name('diary.delete');
   /* user */
   Route::get('/user/list', 'UserController@list')->name('user.list');
   Route::get('/user/edit/{id}', 'UserController@edit')->name('user.edit');

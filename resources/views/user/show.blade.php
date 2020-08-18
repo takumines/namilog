@@ -65,7 +65,7 @@
                       <img src="{{ asset('images/no-image.jpg') }}" alt="" class="card-img-top">
                   @endif
                   <div class="card-body bg-light">
-                    <h4 class="card-title"><a href="{{ route('diary.show', ['id' => $diary->id]) }}">{{ $diary->title }}</a></h4>
+                    <h4 class="card-title"><a href="{{ route('diary.show', ['diary' => $diary->id]) }}">{{ $diary->title }}</a></h4>
                     <div class="card-text ">
                       <p>by <a href="{{ route('user.show', ['id' => $diary->user_id]) }}">{{ $diary->getUserName() }}</a></p>
                       <p class="float-right mb-0">{{ $diary->getFormattedCreatedAtAttribute() }}</p>
