@@ -6,9 +6,12 @@ use App\Spot;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\SpotRequest;
 
-
 class SpotController extends Controller
 {
+    /**
+     * @param Spot $spot
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function show(Spot $spot)
     {
         $user = Auth::user();
@@ -52,6 +55,11 @@ class SpotController extends Controller
         ]);
     }
 
+    /**
+     * @param SpotRequest $request
+     * @param Spot $spot
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update(SpotRequest $request, Spot $spot)
     {
         $spot->fill($request->all())->save();
