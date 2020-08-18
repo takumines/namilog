@@ -42,11 +42,11 @@ class ResetPasswordNotification extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)
+        return (new MailMessage())
                     ->from('namilog@example.com', 'Nami Log')
                     ->subject('パスワード再発行')
                     ->line('下のボタンをクリックしてパスワードを再設定してください。')
-                    ->action('パスワード再設定', url(config('app.url').route('password.reset', $this->token, false)))
+                    ->action('パスワード再設定', url(config('app.url') . route('password.reset', $this->token, false)))
                     ->line('もし心当たりがない場合は、本メッセージは破棄してください。');
     }
 
