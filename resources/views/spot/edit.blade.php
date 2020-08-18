@@ -7,7 +7,7 @@
           <h1 class="text-center mb-5">スポット編集</h1>
         <!-- エラー処理 -->
         @include('partials.errors.form_errors')
-        <form action="{{ route('spot.edit', [ 'id' => $spot->id ]) }}" method="post">
+        <form action="{{ route('spot.edit', [ 'spot' => $spot->id ]) }}" method="post">
           @csrf
           <!-- スポット名フォーム -->
           <div class="form-group">

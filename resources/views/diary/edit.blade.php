@@ -7,7 +7,7 @@
           <h1 class="text-center mb-5">日記作成</h1>
         <!-- エラー処理 -->
         @include('partials.errors.form_errors')
-        <form action="{{ route('diary.edit', ['id' => $diary->id]) }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('diary.edit', ['diary' => $diary->id]) }}" method="post" enctype="multipart/form-data">
           @csrf
           <!-- タイトル入力フォーム -->
           <div class="form-group">

@@ -18,19 +18,19 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function()
 {
   /* spot */
-  Route::get('/spot/create', 'SpotController@add')->name('spot.create');
-  Route::post('/spot/create', 'SpotController@create');
-  Route::get('/spot/edit/{id}', 'SpotController@edit')->name('spot.edit');
-  Route::post('/spot/edit/{id}', 'SpotController@update');
-  Route::get('/spot/{id}', 'SpotController@show')->name('spot.show');
+  Route::get('/spot/create', 'SpotController@create')->name('spot.create');
+  Route::post('/spot/create', 'SpotController@store');
+  Route::get('/spot/edit/{spot}', 'SpotController@edit')->name('spot.edit');
+  Route::post('/spot/edit/{spot}', 'SpotController@update');
+  Route::get('/spot/{spot}', 'SpotController@show')->name('spot.show');
   /* diary */
   Route::get('/diary/list', 'Diarycontroller@list')->name('diary.list');
-  Route::get('/diary/create', 'DiaryController@add')->name('diary.create');
-  Route::post('/diary/create', 'DiaryController@create');
-  Route::get('/diary/edit/{id}', 'DiaryController@edit')->name('diary.edit');
-  Route::post('/diary/edit/{id}', 'DiaryController@update');
-  Route::get('/diary/{id}', 'DiaryController@show')->name('diary.show');
-  Route::post('/diary/del/{id}', 'DiaryController@delete')->name('diary.delete');
+  Route::get('/diary/create', 'DiaryController@create')->name('diary.create');
+  Route::post('/diary/create', 'DiaryController@store');
+  Route::get('/diary/{diary}', 'DiaryController@show')->name('diary.show');
+  Route::get('/diary/edit/{diary}', 'DiaryController@edit')->name('diary.edit');
+  Route::post('/diary/edit/{diary}', 'DiaryController@update');
+  Route::post('/diary/del/{diary}', 'DiaryController@delete')->name('diary.delete');
   /* user */
   Route::get('/user/list', 'UserController@list')->name('user.list');
   Route::get('/user/edit/{id}', 'UserController@edit')->name('user.edit');

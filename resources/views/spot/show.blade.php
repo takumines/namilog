@@ -22,7 +22,7 @@
             <div class="text-center">
               <a class="btn btn-lg btn-success" href="{{ route('diary.list') }}">戻る</a>
               @if($user->id == $spot->user_id)
-                <a class="btn btn-lg btn-primary"  href="{{ route('spot.edit', [ 'id' => $spot->id ]) }}" >編集</a>
+                <a class="btn btn-lg btn-primary"  href="{{ route('spot.edit', [ 'spot' => $spot->id ]) }}" >編集</a>
               @endif
             </div>
         </div>
