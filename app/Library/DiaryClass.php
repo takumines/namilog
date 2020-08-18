@@ -3,7 +3,6 @@ namespace App\Library;
 
 use App\Diary;
 use App\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\DiaryRequest;
 use App\Http\Requests\UserRequest;
@@ -12,11 +11,10 @@ use Intervention\Image\Facades\Image;
 
 class DiaryClass
 {
-  public static function createDiary(DiaryRequest $request)
+  public static function createDiary(DiaryRequest $request, Diary $diary)
   {
-    $diary = new Diary();
-    $user = Auth::user();
-    $diary->user_id = $user->id;
+    $userId= Auth::id();
+    $diary->user_id = $userId;
     $form = $request->all();
 
     if(isset($form['image'])){
@@ -41,13 +39,11 @@ class DiaryClass
     unset($form['_token'],$form['image']);
 
     $diary->fill($form)->save();
-    return $diary;
   }
 
 
-  public static function updateDiary(DiaryRequest $request)
+  public static function updateDiary(DiaryRequest $request, Diary $diary)
   {
-    $diary = Diary::find($request->id);
     $form = $request->all();
 
     if(isset($form['image'])){
@@ -73,8 +69,6 @@ class DiaryClass
     unset($form['_token'],$form['image']);
 
     $diary->fill($form)->save();
-
-    return $diary;
   }
 
   //User

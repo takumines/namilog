@@ -9,8 +9,6 @@ use App\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\DiaryRequest;
-use Illuminate\Support\Facades\Storage;
-use Intervention\Image\Facades\Image;
 use App\Library\DiaryClass;
 
 class DiaryController extends Controller
@@ -26,24 +24,26 @@ class DiaryController extends Controller
             ]);
     }
 
-    public function show(int $id)
+    public function show(Diary $diary)
     {
-        $diary = Diary::find($id);
         $current_user = Auth::user();
         $comments = Comment::where('diary_id', '=', $diary->id)->orderBy('created_at','desc')->simplePaginate(5);
 
         return view('diary/show', [
-            'id' => $diary->id,
             'diary' => $diary,
             'comments' => $comments,
             'current_user' => $current_user,
         ]);
     }
 
-    public function add()
+    /**
+     * @param Spot $spot
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function create(Spot $spot)
     {
         $user = Auth::user();
-        $spots = Spot::all();
+        $spots = $spot->all();
         
         return view('diary.create', [
             'user' => $user,
@@ -51,12 +51,17 @@ class DiaryController extends Controller
         ]);
     }
 
-    public function create(DiaryRequest $request)
+    /**
+     * @param DiaryRequest $request
+     * @param Diary $diary
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function store(DiaryRequest $request, Diary $diary)
     {
-        $diary = DiaryClass::createDiary($request);
+        DiaryClass::createDiary($request,$diary);
 
         return redirect()->route('diary.show', [
-            'id' => $diary->id,
+            'diary' => $diary
         ]);
     }
 
