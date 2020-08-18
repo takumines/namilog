@@ -45,7 +45,7 @@
           @foreach($spots as $spot)
             @if($spot->user_id == $user->id)
             <div class="my-3 pt-1 bg-light rounded shadow-sm">
-              <h3 class="text-center"><a href="{{ route('spot.show', ['id' => $spot->id]) }}">{{ $spot->name }}</a></h3>
+              <h3 class="text-center"><a href="{{ route('spot.show', ['spot' => $spot->id]) }}">{{ $spot->name }}</a></h3>
             </div>
             @endif
           @endforeach

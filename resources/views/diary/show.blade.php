@@ -21,7 +21,7 @@
       </div>
       <div class="col-lg-6 ">
         <h2 class="pt-4">スポット：
-          <a href="{{ route('spot.show', [ 'id' => $diary->spot_id ]) }}" >{{ $diary->getSpotName() }}</a>
+          <a href="{{ route('spot.show', [ 'spot' => $diary->spot_id ]) }}" >{{ $diary->getSpotName() }}</a>
         </h2>
         <h2 class="pt-4">波のサイズ： {{ $diary->size_label }}</h2>
         <h2 class="pt-4">コンディション： {{ $diary->condition_label }}</h2>

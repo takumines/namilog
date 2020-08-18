@@ -20,9 +20,9 @@ Route::group(['middleware' => 'auth'], function()
   /* spot */
   Route::get('/spot/create', 'SpotController@create')->name('spot.create');
   Route::post('/spot/create', 'SpotController@store');
-  Route::get('/spot/edit/{id}', 'SpotController@edit')->name('spot.edit');
-  Route::post('/spot/edit/{id}', 'SpotController@update');
-  Route::get('/spot/{id}', 'SpotController@show')->name('spot.show');
+  Route::get('/spot/edit/{spot}', 'SpotController@edit')->name('spot.edit');
+  Route::post('/spot/edit/{spot}', 'SpotController@update');
+  Route::get('/spot/{spot}', 'SpotController@show')->name('spot.show');
   /* diary */
   Route::get('/diary/list', 'Diarycontroller@list')->name('diary.list');
   Route::get('/diary/create', 'DiaryController@add')->name('diary.create');

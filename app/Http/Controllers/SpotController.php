@@ -3,31 +3,35 @@
 namespace App\Http\Controllers;
 
 use App\Spot;
-use App\Diary;
-use App\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
 use App\Http\Requests\SpotRequest;
 
 
 class SpotController extends Controller
 {
-    public function show(int $id)
+    public function show(Spot $spot)
     {
-        $spot = Spot::find($id);
         $user = Auth::user();
 
         return view('spot/show', [
             'spot' => $spot, 
             'user' => $user,
-            ]);
+        ]);
     }
 
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function create()
     {
         return view('spot.create');
     }
 
+    /**
+     * @param SpotRequest $request
+     * @param Spot $spot
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(SpotRequest $request, Spot $spot)
     {
         $userId = Auth::id();
@@ -37,23 +41,23 @@ class SpotController extends Controller
         return redirect()->route('diary.create');
     }
 
-    public function edit(int $id, Spot $spot)
+    /**
+     * @param Spot $spot
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function edit(Spot $spot)
     {
-        $spot = Spot::find($id);
-
         return view('spot/edit', [
             'spot' => $spot,
         ]);
     }
 
-    public function update(SpotRequest $request)
+    public function update(SpotRequest $request, Spot $spot)
     {
-        $spot = Spot::find($request->id);
-        $form = $request->all();
-        $spot->fill($form)->save();
+        $spot->fill($request->all())->save();
 
         return redirect()->route('spot.show', [
-            'id' => $spot->id,
+            'spot' => $spot,
         ]);
     }
 }
