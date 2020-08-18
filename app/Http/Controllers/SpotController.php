@@ -23,19 +23,16 @@ class SpotController extends Controller
             ]);
     }
 
-    public function add()
+    public function create()
     {
-        return view('spot/create');
+        return view('spot.create');
     }
 
-    public function create(SpotRequest $request)
+    public function store(SpotRequest $request, Spot $spot)
     {
-        $spot = new Spot();
-        $user = Auth::user();
-        $spot->user_id = $user->id;
-        $form = $request->all();
-        
-        $spot->fill($form)->save();
+        $userId = Auth::id();
+        $spot->user_id = $userId;
+        $spot->fill($request->all())->save();
 
         return redirect()->route('diary.create');
     }
