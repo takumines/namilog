@@ -4,7 +4,6 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use App\Notifications\ResetPasswordNotification;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -84,5 +83,10 @@ class User extends Authenticatable
     public function getSpotName()
     {
         return $this->spots->name;
+    }
+
+    public function routeNotificationForSlack($notification)
+    {
+        return config('webhook.slack');
     }
 }
