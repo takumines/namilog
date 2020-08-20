@@ -27,6 +27,10 @@
                 <label for="password-confirm" class="col-md-6">パスワード（確認）</label>
                 <input type="password" class="form-control" id="password-confirm" name="password_confirmation">
               </div>
+              <div class="form-group row">
+                <label for="phone_number" class="col-md-6">電話番号</label>
+                <input type="tel" class="form-control" id="phone_number" name="phone_number">
+              </div>
               <div class="form-group">
                 <div class="text-center">
                   <button class="btn btn-lg btn-primary" type="submit">登録</button>
