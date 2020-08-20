@@ -50,4 +50,9 @@ return [
         'redirect' => env('CALLBACK_URL'),
     ],
 
+    'nexmo' => [
+        'key' => env('NEXMO_KEY'),
+        'secret' => env('NEXMO_SECRET'),
+        'sms_from' => '819059449450',
+    ],
 ];
