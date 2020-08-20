@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Events\UserRegistered;
 use App\Listeners\RegisterUserNotification;
+use App\Listeners\RegisterUserSmsNotification;
 use App\Listeners\SendWelcomeEmail;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -22,7 +23,8 @@ class EventServiceProvider extends ServiceProvider
         ],
         UserRegistered::class => [
             SendWelcomeEmail::class,
-            RegisterUserNotification::class
+            RegisterUserNotification::class,
+            RegisterUserSmsNotification::class,
         ],
     ];
 
