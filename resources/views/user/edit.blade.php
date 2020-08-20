@@ -7,7 +7,7 @@
         <h1 class="text-center mb-5">プロフィール編集</h1>
         <!-- エラー処理 -->
         @include('partials.errors.form_errors')
-        <form action="{{ route('user.edit', ['id' => $user->id]) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('user.edit', ['user' => $user->id]) }}" method="POST" enctype="multipart/form-data">
           @csrf
           <!-- ユーザー名 -->
           <div class="form-group">

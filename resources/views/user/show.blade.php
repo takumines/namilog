@@ -8,7 +8,7 @@
 @section('content')
   <div class="container">
     <div class="col col-md-8 mx-auto">
-      <h2 class="text-center mb-3">プロフィール</h1>
+      <h2 class="text-center mb-3">プロフィール</h2>
     </div>
     <div class="row p-4 mb-3 bg-white rounded shadow-sm">
       <div class="col-md-5">
@@ -32,7 +32,7 @@
       @if($current_user->id == $user->id)
         <div class="col pt-3">
           <div class="text-center">
-            <a class="btn btn-lg btn-primary"  href="{{ route('user.edit', [ 'id' => $user->id ]) }}" >編集</a>
+            <a class="btn btn-lg btn-primary"  href="{{ route('user.edit', [ 'user' => $user->id ]) }}" >編集</a>
           </div>
         </div>
       @endif
@@ -67,7 +67,7 @@
                   <div class="card-body bg-light">
                     <h4 class="card-title"><a href="{{ route('diary.show', ['diary' => $diary->id]) }}">{{ $diary->title }}</a></h4>
                     <div class="card-text ">
-                      <p>by <a href="{{ route('user.show', ['id' => $diary->user_id]) }}">{{ $diary->getUserName() }}</a></p>
+                      <p>by <a href="{{ route('user.show', ['user' => $user->id]) }}">{{ $diary->getUserName() }}</a></p>
                       <p class="float-right mb-0">{{ $diary->getFormattedCreatedAtAttribute() }}</p>
                       @if($diary->comments->count())
                         <span class="badge badge-primary">

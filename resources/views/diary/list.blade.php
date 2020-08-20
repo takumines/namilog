@@ -23,7 +23,7 @@
               <div class="card-body bg-light">
                 <h4 class="card-title"><a href="{{ route('diary.show', ['diary' => $diary->id]) }}">{{ $diary->title }}</a></h4>
                 <div class="card-text ">
-                  <p>by <a href="{{ route('user.show', ['id' => $diary->user_id]) }}">{{ $diary->getUserName() }}</a></p>
+                  <p>by <a href="{{ route('user.show', ['user' => $diary->user_id]) }}">{{ $diary->getUserName() }}</a></p>
                   @if($diary->comments->count())
                     <span class="badge badge-primary">
                       コメント {{ $diary->comments->count() }}件

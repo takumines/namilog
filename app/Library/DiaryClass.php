@@ -74,9 +74,8 @@ class DiaryClass
 
   //User
 
-    public static function userUpdateImage(UserRequest $request)
+    public static function userUpdateImage(UserRequest $request, User $user)
     {
-        $user = User::find($request->id);
         $form = $request->all();
         if (isset($form['image'])) {
             // 画像の拡張子を取得
@@ -100,7 +99,5 @@ class DiaryClass
         unset($form['_token'], $form['image']);
 
         $user->fill($form)->save();
-
-        return $user;
     }
 }
