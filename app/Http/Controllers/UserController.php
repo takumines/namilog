@@ -11,43 +11,39 @@ use App\Library\DiaryClass;
 
 class UserController extends Controller
 {
-    public function list()
+    public function list(User $user)
     {
-        $users = User::simplePaginate(7);
+        $users = $user->simplePaginate(7);
 
-        return view('user/list', [
+        return view('user.list', [
             'users' => $users,
         ]);
     }
 
-    public function edit(int $id)
+    public function edit(User $user)
     {
-        $user = User::find($id);
-        
         return view('user.edit', [
             'user' => $user,
-            'id' => $user->id,
         ]);
     }
 
-    public function update(UserRequest $request)
+    public function update(UserRequest $request, User $user)
     {
-        $user = DiaryClass::userUpdateImage($request);
+        DiaryClass::userUpdateImage($request, $user);
 
         return redirect()->route('user.show', [
-            'id' => $user->id,
+            'user' => $user,
         ]);
     }
 
-    public function show(int $id, Spot $spots, User $user, Diary $diaries)
+    public function show(Spot $spot, User $user, Diary $diary)
     {
-        $user = User::find($id);
         $current_user = Auth::user();
-        $spots = Spot::all();
-        $diaries = Diary::where('user_id', '=', $user->id)->orderBy('created_at', 'desc')->simplePaginate(3);
+        $spots = $spot->all();
+        $diaries = $diary->where('user_id', '=', $user->id)->orderBy('created_at', 'desc')->simplePaginate(3);
 
 
-        return view('user/show', [
+        return view('user.show', [
             'user' => $user,
             'current_user' => $current_user,
             'spots' => $spots,
