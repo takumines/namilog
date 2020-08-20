@@ -42,7 +42,7 @@
               <a class="nav-item nav-link" href="{{ route('diary.list') }}">タイムライン</a>
               <a class="nav-item nav-link" href="{{ route('diary.create') }}">日記投稿</a>
               <a class="nav-item nav-link" href="{{ route('user.list') }}">ユーザー一覧</a>
-              <a class="nav-item nav-link" href="{{ route('user.show', ['id' => Auth::user()->id]) }}">プロフィール</a>
+              <a class="nav-item nav-link" href="{{ route('user.show', ['user' => Auth::user()->id]) }}">プロフィール</a>
               <a class="nav-item nav-link" href="{{ route('logout') }}" id="logout"
               onclick="event.preventDefault();document.getElementById('logout-form').submit();">ログアウト</a>
               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
