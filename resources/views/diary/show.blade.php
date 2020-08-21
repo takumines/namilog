@@ -49,7 +49,7 @@
     <div class="row p-4 mb-3 bg-white rounded shadow-sm">
       <div class="col col-md-10 mx-auto">
         @include('partials.errors.form_errors')
-        <form action="{{ route('comment.create', ['diary' => $diary->id]) }}" method="POST">
+        <form action="{{ route('comment.create') }}" method="POST">
           @csrf
           <input type="hidden"  name="diary_id" value="{{ $diary->id }}">
           <div class=" form-group">
@@ -77,7 +77,7 @@
                   @csrf
                 </form>
               @endif
-              <a href="{{ route('user.show', [ 'id' => $comment->user_id ]) }}">
+              <a href="{{ route('user.show', [ 'user' => $comment->user_id ]) }}">
                 <p class="float-right mb-0 ml-2">{{ $comment->getCommentUserName() }}</p>
               </a>
               <p class="float-right mb-0">{{ $comment->getFormattedCreatedAtAttribute() }}</p>
