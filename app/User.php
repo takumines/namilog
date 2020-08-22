@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use App\Notifications\ResetPasswordNotification;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class User extends Authenticatable
 {
@@ -88,5 +90,32 @@ class User extends Authenticatable
     public function routeNotificationForSlack($notification)
     {
         return config('webhook.slack');
+    }
+
+    public function userUpdateImage($request)
+    {
+        $form = $request->all();
+        if (isset($form['image'])) {
+            // 画像の拡張子を取得
+            $extension = $form['image']->getClientOriginalExtension();
+            // 画像の名前を取得
+            $filename = $form['image']->getClientOriginalName();
+            // 画像をリサイズ
+            $resize_img = Image::make($form['image'])->resize(300, 300)->encode($extension);
+            // s3のuploadsファイルに追加
+            $path = Storage::disk('s3')->put('/user/' . $filename, (string)$resize_img, 'public');
+            // 画像のURLを参照
+            $url = Storage::disk('s3')->url('user/' . $filename);
+            $this->image_path = $url;
+        }
+
+        if (isset($form['remove'])) {
+            $this->image_path = null;
+            unset($form['remove']);
+        }
+
+        unset($form['_token'], $form['image']);
+
+        $this->fill($form)->save();
     }
 }
