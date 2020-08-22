@@ -31,10 +31,10 @@ class DiaryController extends Controller
      * @param Diary $diary
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function show(Diary $diary)
+    public function show(Diary $diary, Comment $comment)
     {
         $current_user = Auth::user();
-        $comments = Comment::where('diary_id', '=', $diary->id)->orderBy('created_at', 'desc')->simplePaginate(5);
+        $comments = $comment->where('diary_id', '=', $diary->id)->orderBy('created_at', 'desc')->simplePaginate(5);
 
         return view('diary/show', [
             'diary' => $diary,
@@ -106,9 +106,9 @@ class DiaryController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Exception
      */
-    public function delete(Diary $diary, User $user)
+    public function delete(Diary $diary, User $user, Comment $comment)
     {
-        Comment::where('diary_id', '=', $diary->id)->delete();
+        $comment->where('diary_id', '=', $diary->id)->delete();
         $diary->delete();
         $diaries = $diary->all();
         $users = $user->all();
