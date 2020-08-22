@@ -8,7 +8,6 @@ use App\User;
 use App\Comment;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\DiaryRequest;
-use App\Library\DiaryClass;
 
 class DiaryController extends Controller
 {
@@ -66,7 +65,7 @@ class DiaryController extends Controller
      */
     public function store(DiaryRequest $request, Diary $diary)
     {
-        DiaryClass::createDiary($request, $diary);
+        $diary->createDiary($request, $diary);
 
         return redirect()->route('diary.show', [
             'diary' => $diary
@@ -94,7 +93,7 @@ class DiaryController extends Controller
      */
     public function update(DiaryRequest $request, Diary $diary)
     {
-        DiaryClass::updateDiary($request, $diary);
+        $diary->updateDiary($request, $diary);
         
         return redirect()->route('diary.show', [
             'diary' => $diary
