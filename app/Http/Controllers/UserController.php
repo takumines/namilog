@@ -7,7 +7,6 @@ use App\Spot;
 use App\Diary;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Auth;
-use App\Library\DiaryClass;
 
 class UserController extends Controller
 {
@@ -29,7 +28,7 @@ class UserController extends Controller
 
     public function update(UserRequest $request, User $user)
     {
-        DiaryClass::userUpdateImage($request, $user);
+        $user->userUpdateImage($request);
 
         return redirect()->route('user.show', [
             'user' => $user,

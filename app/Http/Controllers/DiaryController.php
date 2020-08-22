@@ -8,7 +8,6 @@ use App\User;
 use App\Comment;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\DiaryRequest;
-use App\Library\DiaryClass;
 
 class DiaryController extends Controller
 {
@@ -32,10 +31,10 @@ class DiaryController extends Controller
      * @param Diary $diary
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function show(Diary $diary)
+    public function show(Diary $diary, Comment $comment)
     {
         $current_user = Auth::user();
-        $comments = Comment::where('diary_id', '=', $diary->id)->orderBy('created_at', 'desc')->simplePaginate(5);
+        $comments = $comment->where('diary_id', '=', $diary->id)->orderBy('created_at', 'desc')->simplePaginate(5);
 
         return view('diary/show', [
             'diary' => $diary,
@@ -66,7 +65,7 @@ class DiaryController extends Controller
      */
     public function store(DiaryRequest $request, Diary $diary)
     {
-        DiaryClass::createDiary($request, $diary);
+        $diary->createDiary($request, $diary);
 
         return redirect()->route('diary.show', [
             'diary' => $diary
@@ -94,7 +93,7 @@ class DiaryController extends Controller
      */
     public function update(DiaryRequest $request, Diary $diary)
     {
-        DiaryClass::updateDiary($request, $diary);
+        $diary->updateDiary($request, $diary);
         
         return redirect()->route('diary.show', [
             'diary' => $diary
@@ -107,9 +106,9 @@ class DiaryController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Exception
      */
-    public function delete(Diary $diary, User $user)
+    public function delete(Diary $diary, User $user, Comment $comment)
     {
-        Comment::where('diary_id', '=', $diary->id)->delete();
+        $comment->where('diary_id', '=', $diary->id)->delete();
         $diary->delete();
         $diaries = $diary->all();
         $users = $user->all();
