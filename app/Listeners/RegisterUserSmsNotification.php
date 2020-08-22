@@ -5,6 +5,8 @@ namespace App\Listeners;
 use App\Notifications\SmsNotification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Support\Facades\Notification;
+
 
 class RegisterUserSmsNotification
 {
@@ -26,6 +28,7 @@ class RegisterUserSmsNotification
      */
     public function handle($event)
     {
-        $event->user->notify(new SmsNotification());
+        Notification::route('nexmo', $event->user->phone_number)
+                        ->notify(new SmsNotification());
     }
 }
