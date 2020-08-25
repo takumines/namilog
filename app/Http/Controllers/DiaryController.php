@@ -108,7 +108,6 @@ class DiaryController extends Controller
      */
     public function delete(Diary $diary, User $user, Comment $comment)
     {
-        $comment->where('diary_id', '=', $diary->id)->delete();
         $diary->delete();
         $diaries = $diary->all();
         $users = $user->all();
