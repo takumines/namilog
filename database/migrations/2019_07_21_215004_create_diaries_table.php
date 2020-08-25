@@ -26,8 +26,8 @@ class CreateDiariesTable extends Migration
             $table->timestamps();
 
             // 外部キー設定
-            $table->foreign('spot_id')->references('id')->on('spots');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('spot_id')->references('id')->on('spots')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
