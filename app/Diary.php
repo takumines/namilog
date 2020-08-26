@@ -10,17 +10,26 @@ use Intervention\Image\Facades\Image;
 class Diary extends Model
 {
     protected $fillable = ['title', 'user_id', 'spot_id', 'condition', 'size', 'score', 'body', 'image_path'];
-    
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function comments()
     {
-        return $this->hasMany('App\Comment');
+        return $this->hasMany('App\Comment',);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function spot()
     {
         return $this->belongsTo('App\Spot');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function user()
     {
         return $this->belongsTo('App\User');
@@ -81,6 +90,10 @@ class Diary extends Model
         return  date('Y年n月j日', strtotime($updated_at));
     }
 
+    /**
+     * @param $request
+     * @param $diary
+     */
     public function createDiary($request, $diary)
     {
         $userId = Auth::id();
@@ -98,6 +111,10 @@ class Diary extends Model
         $diary->fill($form)->save();
     }
 
+    /**
+     * @param $request
+     * @param $diary
+     */
     public function updateDiary($request, $diary)
     {
         $form = $request->all();
@@ -114,6 +131,10 @@ class Diary extends Model
         $diary->fill($form)->save();
     }
 
+    /**
+     * @param $form
+     * @param $diary
+     */
     private function uploadImage($form, $diary)
     {
         if (isset($form['image'])) {

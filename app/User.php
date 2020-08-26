@@ -50,11 +50,17 @@ class User extends Authenticatable
         $this->notify(new ResetPasswordNotification($token));
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function spots()
     {
         return $this->hasMany('App\Spot');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function users()
     {
         return $this->hasMany('App\User');
@@ -82,16 +88,26 @@ class User extends Authenticatable
         return config('board')[$board_name]['label'];
     }
 
+    /**
+     * @return mixed
+     */
     public function getSpotName()
     {
         return $this->spots->name;
     }
 
+    /**
+     * @param $notification
+     * @return \Illuminate\Config\Repository|\Illuminate\Contracts\Foundation\Application|mixed
+     */
     public function routeNotificationForSlack($notification)
     {
         return config('webhook.slack');
     }
 
+    /**
+     * @param $request
+     */
     public function userUpdateImage($request)
     {
         $form = $request->all();

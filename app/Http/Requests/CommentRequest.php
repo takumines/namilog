@@ -28,6 +28,9 @@ class CommentRequest extends FormRequest
         ];
     }
 
+    /**
+     * @return array|string[]
+     */
     public function attributes()
     {
         return [

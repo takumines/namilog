@@ -29,6 +29,9 @@ class UserRequest extends FormRequest
         ];
     }
 
+    /**
+     * @return array|string[]
+     */
     public function attributes()
     {
         return [
