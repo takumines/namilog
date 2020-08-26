@@ -31,6 +31,9 @@ class DiaryRequest extends FormRequest
         ];
     }
 
+    /**
+     * @return array|string[]
+     */
     public function attributes()
     {
         return [
@@ -40,6 +43,9 @@ class DiaryRequest extends FormRequest
         ];
     }
 
+    /**
+     * @return array|string[]
+     */
     public function messages()
     {
         return [

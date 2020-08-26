@@ -30,6 +30,9 @@ class SpotRequest extends FormRequest
         ];
     }
 
+    /**
+     * @return array|string[]
+     */
     public function attributes()
     {
         return [

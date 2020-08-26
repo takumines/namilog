@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+    /**
+     * @param User $user
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function list(User $user)
     {
         $users = $user->simplePaginate(7);
@@ -19,6 +23,10 @@ class UserController extends Controller
         ]);
     }
 
+    /**
+     * @param User $user
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function edit(User $user)
     {
         return view('user.edit', [
@@ -26,6 +34,11 @@ class UserController extends Controller
         ]);
     }
 
+    /**
+     * @param UserRequest $request
+     * @param User $user
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update(UserRequest $request, User $user)
     {
         $user->userUpdateImage($request);
@@ -35,6 +48,12 @@ class UserController extends Controller
         ]);
     }
 
+    /**
+     * @param Spot $spot
+     * @param User $user
+     * @param Diary $diary
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function show(Spot $spot, User $user, Diary $diary)
     {
         $current_user = Auth::user();

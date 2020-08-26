@@ -8,17 +8,25 @@ class Comment extends Model
 {
     protected $fillable = ['user_id', 'diary_id', 'body'];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function user()
     {
         return $this->belongsTo('App\User');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function diary()
     {
         return $this->belongsTo('App\Diary');
     }
 
-    // commentのuser_idからユーザー名を取得する
+    /**
+     * @return mixed
+     */
     public function getCommentUserName()
     {
         return $this->user->name;
