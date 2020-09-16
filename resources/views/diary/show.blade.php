@@ -32,6 +32,7 @@
             <h3 class="text-center">{{ $diary->body }}</h3>
           </div>
       </div>
+      <!-- TODO 認証チェックの改善 -->
       @if($diary->user_id == $current_user->id)
         <div class="col-12 pt-3 text-center">
           <a class="btn btn-lg btn-primary"  href="{{ route('diary.edit', ['diary' => $diary->id ]) }}">編集</a>
