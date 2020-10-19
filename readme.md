@@ -12,6 +12,5 @@
 ### 開発環境
 - Laravel
 - PHP
-- MAMP
+- Docker
 - S3
-- heroku
